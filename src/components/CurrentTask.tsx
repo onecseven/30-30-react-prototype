@@ -1,13 +1,14 @@
 import React from "react"
 import { useTaskStor } from "../store/store"
+import { TaskStore } from "../store/taskSlice"
+import { TaskCard } from "./TaskCard"
 
-export const CurrentTask = () => {
-  let { name, remaining_seconds, status} = useTaskStor((state) => state)
-  return (
-    <>
-      <div>CurrentTask: {name} </div>
-      <div>Status: {status} </div>
-      <div>Remaining Length: {remaining_seconds}</div>
-    </>
-  )
+interface taskCardProps {
+  task: Partial<TaskStore>
+  times: Date[] | null
+}
+export const CurrentTask = ({ task, times }: taskCardProps) => {
+  if (!task || !times) return <></>
+  let { remaining_seconds } = useTaskStor((state) => state)
+  return <TaskCard task={{ ...task, remaining_seconds }} times={times} />
 }
