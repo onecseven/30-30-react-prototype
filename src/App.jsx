@@ -1,5 +1,4 @@
 import React from "react"
-import "./App.css"
 import { SendToBottom, DoneBtn, LoopBtn } from "./components/Buttons/SendToBottom"
 import { CurrentTask } from "./components/CurrentTask"
 import { TaskList } from "./components/TaskList"
@@ -14,7 +13,6 @@ export const App = () => {
       <div className="App">
         <h1> Timer State: {status} </h1>
         <h2> Looping: {looping ? "Yes":"No"}</h2>
-        <CurrentTask />
         <StartBtn/>
         <StopBtn/>
         <SendToBottom />

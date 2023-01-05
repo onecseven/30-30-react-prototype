@@ -5,10 +5,8 @@ import { TaskCard } from "./TaskCard"
 
 interface taskCardProps {
   task: Partial<TaskStore>
-  times: Date[] | null
 }
-export const CurrentTask = ({ task, times }: taskCardProps) => {
-  if (!task || !times) return <></>
-  let { remaining_seconds } = useTaskStor((state) => state)
-  return <TaskCard task={{ ...task, remaining_seconds }} times={times} />
+export const CurrentTask = () => {
+  let task = useTaskStor((state) => state)
+  return <TaskCard task={{ ...task }}  />
 }
