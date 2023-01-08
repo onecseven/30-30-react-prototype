@@ -1,13 +1,44 @@
-.App {
-  margin: 1rem;
+html {
+  margin: -6% 15% 0 15%;
   text-align: center;
   font-family: 'Oswald', sans-serif;
+  background-color: #fcb2b6;
+  display: inline-block;
+  scale:  0.77;
+
 }
 
-.taskList {
-  width: 60%;
-  margin: 0 20% 0 20%;
+
+.timerCircle {
 }
+.taskList {
+  width: 500px;
+  margin: 0 0% 0 30%;
+}
+
+.timerText {
+  font-size: 125px;
+  word-spacing: 0%;
+  kerning: -2cm;
+}
+
+.svgTaskCard {
+  margin-left: -2%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .taskCard {
@@ -30,17 +61,19 @@
 .icon {
   grid-area: icon;
 }
+
+
 .length {
   line-height: 5%;
   font-size: 25px;
-  margin: 7% 0% 7% 50%;
+  margin: 30% 0% 0% 50%;
   grid-area: length;
 }
 .cTimes {
   margin-left: auto;
   margin-right: 25%;
   line-height: 5%;
-  margin-top: 1%;
+  margin-top: 3%;
   font-size: 25px;
   grid-area: cTimes;
 }
