@@ -71,14 +71,13 @@ const CardLength = ({ length = "00:00" }) => (
 )
 const CompStart = ({ cStart = "xx:xx:xx" }) => (
   <text
-  x="60.188"
+  x="59.500"
   y="31.106"
   fill="#fcb2b6"
   strokeWidth="0.265"
   fontSize="7"
-  xmlSpace="preserve"
   >
-    <tspan x="60.188" y="31.106" strokeWidth="0.265">
+    <tspan x="59.500" y="31.106" strokeWidth="0.265">
       {cStart}
     </tspan>
   </text>
@@ -86,14 +85,13 @@ const CompStart = ({ cStart = "xx:xx:xx" }) => (
 
 const CompEnd = ({ cEnd = "xx:xx:xx" }) => (
   <text
-  x="96.202"
+  x="94.202"
   y="31.165"
   fill="#fcb2b6"
   strokeWidth="0.265"
   fontSize="7"
-  xmlSpace="preserve"
   >
-    <tspan x="96.202" y="31.165" strokeWidth="0.265">
+    <tspan x="94.202" y="31.165" strokeWidth="0.265">
       {cEnd}
     </tspan>
   </text>
@@ -103,7 +101,7 @@ const CardArrow = () => (
     <path
       fill="#fcb2b6"
       strokeWidth="0.265"
-      d="M87.933 27.323l-.026 1.457 2.786.051v1.815l3.144-2.582-3.016-2.556-.076 1.764-2.863-.051z"
+      d="M86.33 27.323l-.026 1.457 1.786.051v1.815l3.144-2.582-3.016-2.556-.076 1.764-2.863-.051z"
       ></path>
   </>
 )

@@ -9,6 +9,7 @@ export const TaskStor = create<TaskStore>()((set, get) => ({
   length: -1,
   remaining_seconds: -1,
   start_tick: null,
+  computed: null,
   dispatch: (type: string, data: TaskStore) =>
     set((state) => task_reducer(state, type, data)),
 }))

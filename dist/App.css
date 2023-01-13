@@ -1,5 +1,5 @@
 html {
-  margin: -6% 15% 0 15%;
+  margin: -10% 15% 0 15%;
   text-align: center;
   font-family: 'Oswald', sans-serif;
   background-color: #fcb2b6;
@@ -11,6 +11,11 @@ html {
 
 .timerCircle {
 }
+
+.innerCircle   {
+  transform: rotate(45);
+}
+
 .taskList {
   width: 500px;
   margin: 0 0% 0 30%;

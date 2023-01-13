@@ -1,4 +1,5 @@
 import { TaskStore } from "./taskSlice"
+//TODO GET RID OF ISPLAYING
 export interface TaskListStore {
   status: "IDLE" | "TIMER_ACTIVE"
   name: string
