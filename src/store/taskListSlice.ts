@@ -66,7 +66,7 @@ export const tasklist_reducer = (
   type: string,
   payload: TaskListStore | "preserve"
 ): Partial<TaskListStore> => {
-  console.log(type)
+  // console.log(type)
   switch (type) {
     case actions.taskList.start: {
       if (state.status === "TIMER_ACTIVE") return state
