@@ -38,7 +38,6 @@ export const SVGCard = ({ name, length, cEnd, cStart }: SVGCardProps) => {
 
 
 const CardName = ({ name = "Name" }: Partial<SVGCardProps>) => {
-  console.log(name)
   return (
     <text
       x="28"

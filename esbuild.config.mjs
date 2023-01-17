@@ -19,7 +19,7 @@ esbuild
     loader: {
       ".js": "jsx",
     },
-    minify: true,
+    // minify: true,
     external: [],
     format: "cjs",
     watch: !prod,

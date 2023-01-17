@@ -107,8 +107,10 @@ export class TaskList implements TaskList {
 }
 
 export default new TaskList("pollo", [
-  new Task("a", 30),
-  new Task("B", 40),
-  new Task("c", 20),
-  new Task("collo", 60)
+  new Task("code", 1500),
+  new Task("break", 150),
+  new Task("code", 1500),
+  new Task("break", 10),
+  new Task("code", 1500),
+  new Task("break", 1500)
 ])

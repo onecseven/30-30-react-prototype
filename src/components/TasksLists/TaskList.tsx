@@ -15,7 +15,6 @@ export const TaskList = () => {
       return { ...task, computed: null }
     }
   })
-  console.log(tasks)
   return (
     <>
       {...tasks.slice(1).map((cTask) => {

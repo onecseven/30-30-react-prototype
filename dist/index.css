@@ -1,2 +1,11 @@
-body{background-color:#000;color:#0ff;font-family:Ubuntu Mono,Helvetica,Arial,sans-serif}
-/*# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vc3JjL2luZGV4LmNzcyJdLAogICJzb3VyY2VzQ29udGVudCI6IFsiYm9keSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XHJcbiAgY29sb3I6IGN5YW47XHJcbiAgZm9udC1mYW1pbHk6ICdVYnVudHUgTW9ubycsIEhlbHZldGljYSwgQXJpYWwsIHNhbnMtc2VyaWY7XHJcbn1cclxuIl0sCiAgIm1hcHBpbmdzIjogIkFBQUEsS0FDRSxzQkFDQSxXQUNBIiwKICAibmFtZXMiOiBbXQp9Cg== */
+/* src/index.css */
+body {
+  background-color: black;
+  color: cyan;
+  font-family:
+    "Ubuntu Mono",
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+/*# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vc3JjL2luZGV4LmNzcyJdLAogICJzb3VyY2VzQ29udGVudCI6IFsiYm9keSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XHJcbiAgY29sb3I6IGN5YW47XHJcbiAgZm9udC1mYW1pbHk6ICdVYnVudHUgTW9ubycsIEhlbHZldGljYSwgQXJpYWwsIHNhbnMtc2VyaWY7XHJcbn1cclxuIl0sCiAgIm1hcHBpbmdzIjogIjtBQUFBO0FBQ0U7QUFDQTtBQUNBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTsiLAogICJuYW1lcyI6IFtdCn0K */

@@ -28,7 +28,7 @@ export const task_reducer = (
   type: string,
   payload: TaskStore
 ): Partial<TaskStore> => {
-  console.log(type, state)
+  // console.log(type, state)
   switch (type) {
     case actions.task.addTime: {
       let potential = add_remove_seconds(state.remaining_seconds, true)
