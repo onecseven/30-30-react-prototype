@@ -1,15 +1,6 @@
 import moment from "moment"
+import { actions } from "./actions"
 
-const actions = {
-  task: {
-    tick: "tick",
-    startTick: "startTick",
-    setTask: "setTask",
-    pause: "pause",
-    addTime: "add",
-    takeTime: "take",
-  },
-}
 
 const add_remove_seconds = (seconds: number, add: boolean) => {
   //thresholds: 2 hours, 1 hour, 10 minutes

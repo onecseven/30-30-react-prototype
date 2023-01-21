@@ -1,32 +1,17 @@
 import { TaskStore } from "./taskSlice"
-//TODO GET RID OF ISPLAYING
+import { actions } from "./actions"
+
 export interface TaskListStore {
   status: "IDLE" | "TIMER_ACTIVE"
   name: string
   tasks: TaskStore[]
   looping: boolean
   timer: ReturnType<typeof setTimeout> | null
-  isPlaying: boolean
   getState(): TaskStore
   dispatch: (type: string, payload: TaskListStore | string) => void
 }
 
-export const actions = {
-  taskList: {
-    setTaskList: "setTaskList",
-    sendBottom: "sendBottom",
-    endTasklist: "endTasklist",
-    toggleLoop: "toggleLoop",
-    stop: "stop",
-    start: "start",
-  },
-  task: {
-    tick: "tick",
-    startTick: "startTick",
-    setTask: "setTask",
-    pause: "pause",
-  },
-}
+
 
 let compute_times = (state: TaskListStore): TaskListStore["tasks"] => {
   let [_, start] = state.getState().computed
@@ -55,7 +40,6 @@ const start_timer = (state): Partial<TaskListStore> => {
   state.getState().dispatch(actions.task.startTick, null)
   return {
     timer: set_timer(state),
-    isPlaying: true,
     status: "TIMER_ACTIVE",
     tasks: compute_times(state),
   }
@@ -132,7 +116,20 @@ export const tasklist_reducer = (
     case actions.taskList.endTasklist: {
       if (state.timer) clearInterval(state.timer)
       return {
-        isPlaying: false,
+        status: "IDLE",
+      }
+    }
+    case actions.taskList.delete: {
+      if (state.tasks.length < 2) return state
+      if (state.timer) clearInterval(state.timer)
+      let tasks = state.tasks.slice(1)
+      let taskDispatch = state.getState().dispatch
+      taskDispatch(actions.task.setTask, { ...tasks[0] })
+
+      return {
+        timer: null,
+        tasks: tasks.map((task) => ({ ...task, computed: null })),
+        status: "IDLE",
       }
     }
     default:

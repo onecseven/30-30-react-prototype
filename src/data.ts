@@ -50,6 +50,7 @@ export class Task implements Task {
 }
 
 export class TaskList implements TaskList {
+  id = getUniqueID()
   name: string
   tasks: Task[] = [new StopTask(() => this.stop())]
   private looping = false // ignore StopTask or not
