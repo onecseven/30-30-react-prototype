@@ -1,4 +1,5 @@
 import React from "react"
+import {useState} from "react"
 import { useTimerStore, useTaskStor } from "../store/store"
 import { TimerBtn } from "./Buttons/TimerButtons"
 import {
@@ -6,6 +7,7 @@ import {
   OpenLockIcon,
   SendToBottomIcon,
   TrashIcon,
+  LockIcon
 } from "./Buttons/TimerIcons"
 
 interface LabelProps {
@@ -39,6 +41,7 @@ const BtnLabel = ({ label = "", x, y }: LabelProps) => {
 }
 
 export const ClassicTimerButtons = () => {
+  const [isLocked, setIsLocked] = useState(false)
   let { dispatch } = useTimerStore((state) => state)
   let taskDispatch = useTaskStor((state) => state.dispatch)
   let remaining = useTaskStor((state) => state.remaining_seconds)
@@ -49,6 +52,7 @@ export const ClassicTimerButtons = () => {
   let done = () => dispatch("sendBottom", "preserve")
   let add = () => taskDispatch("add", null)
   let take = () => taskDispatch("take", null)
+  let toggleLock = () => setIsLocked(!isLocked)
   let label = labelMaker(remaining)
 
   return (
@@ -59,11 +63,11 @@ export const ClassicTimerButtons = () => {
       <TimerBtn pos="topLeft" cb={send_to_bottom}>
         <SendToBottomIcon x="115" y="97" />
       </TimerBtn>
-      <TimerBtn pos="topRight" cb={() => null}>
+      {!isLocked && <TimerBtn pos="topRight" cb={() => null}>
         <TrashIcon x="455" y="-190" />
-      </TimerBtn>
-      <TimerBtn pos="bottom" cb={() => null}>
-        <OpenLockIcon x="286" y="247" />
+      </TimerBtn>}
+      <TimerBtn pos="bottom" cb={toggleLock}>
+        {isLocked ? <LockIcon x="286" y="247"/>   : <OpenLockIcon x="286" y="247" />}
       </TimerBtn>
       <TimerBtn pos="bottomLeft" cb={take}>
         <BtnLabel x="120" y="540" label={`-${label}m`} />
