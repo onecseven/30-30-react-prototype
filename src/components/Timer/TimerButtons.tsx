@@ -1,4 +1,4 @@
-import { SvgBtn, SVGBtnProps } from "./Btn"
+import { SvgBtn, SVGBtnProps } from "../Shared/Btn"
 import React from "react"
 
 type TimerPositions =

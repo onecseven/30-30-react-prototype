@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Licon } from "../Icon"
 
 interface btnProps {
   label: string
