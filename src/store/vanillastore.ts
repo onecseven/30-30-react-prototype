@@ -1,7 +1,9 @@
 import create from "zustand/vanilla"
 import { TaskStore, task_reducer } from "./taskSlice"
 import { TaskListStore, tasklist_reducer } from "./taskListSlice"
-import { PickerStore } from "./PickerSlice"
+import { PickerStore, picker_reducer } from "./PickerSlice"
+import { TaskList } from "../data"
+
 
 export const TaskStor = create<TaskStore>()((set, get) => ({
   status: "OVER",
@@ -29,4 +31,6 @@ export const TimerStore = create<TaskListStore>()((set) => ({
 
 export const PickerStor = create<PickerStore>()((set) => ({
   taskLists: [],
+  dispatch: (type: "string", data: string | TaskList[]) =>
+    set((state) => picker_reducer(state, type, data)),
 }))

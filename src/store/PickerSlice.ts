@@ -5,12 +5,13 @@ import { TimerStore } from "./vanillastore"
 
 export interface PickerStore {
   taskLists: TaskList[]
+  dispatch: (type: string, data: TaskList["id"] | TaskList[] | null) => void
 }
 
-export const tasklist_reducer = (
+export const picker_reducer = (
   state: PickerStore,
   type: string,
-  payload: TaskList["id"] | TaskList[]
+  payload: TaskList["id"] | TaskList[] | null
 ): Partial<PickerStore> => {
   switch (type) {
     case actions.picker.select: {
