@@ -1,15 +1,16 @@
 import React from "react"
 import {useState} from "react"
 import { useTimerStore, useTaskStor } from "../store/store"
-import { TimerBtn } from "./Buttons/TimerButtons"
+import { TimerBtn } from "./Timer/TimerButtons"
 import {
   CheckMarkIcon,
   OpenLockIcon,
   SendToBottomIcon,
   TrashIcon,
   LockIcon
-} from "./Buttons/TimerIcons"
+} from "./Shared/Icons"
 
+//TODO Put these into TimerButtons individually and export them as DoneButton, SendToBottomButton etc
 interface LabelProps {
   x: string
   y: string

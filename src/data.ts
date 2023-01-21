@@ -115,3 +115,9 @@ export default new TaskList("pollo", [
   new Task("code", 1500),
   new Task("break", 1500)
 ])
+
+export const second = new TaskList("pullo", [
+  new Task("smash", 1500),
+  new Task("break", 150),
+])
+
