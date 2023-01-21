@@ -6,7 +6,6 @@ import { Pause } from "./Timer/Pause"
 import { seconds_to_mmss } from "./TasksLists/seconds_to_mmss"
 import { TimerText } from "./Timer/TimerText"
 import { Triangle } from "./Timer/Triangle"
-import { Licon } from "./Icon"
 import { ClassicTimerButtons } from "./ClassicTimerButtons"
 
 // a is to b as x is to {y} (solves for y)
