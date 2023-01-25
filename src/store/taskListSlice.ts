@@ -11,8 +11,6 @@ export interface TaskListStore {
   dispatch: (type: string, payload: TaskListStore | string) => void
 }
 
-
-
 let compute_times = (state: TaskListStore): TaskListStore["tasks"] => {
   let [_, start] = state.getState().computed
   let ends = [{ ...state.getState() }]
@@ -109,9 +107,10 @@ export const tasklist_reducer = (
     }
 
     case actions.taskList.setTaskList: {
+      if (state.timer) clearInterval(state.timer)
       if (!payload || typeof payload === "string") return state
       state.getState().dispatch("setTask", payload.tasks[0])
-      return { ...state, ...payload }
+      return { ...state, status: "IDLE", ...payload }
     }
     case actions.taskList.endTasklist: {
       if (state.timer) clearInterval(state.timer)
