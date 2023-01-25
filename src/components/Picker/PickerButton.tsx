@@ -1,5 +1,5 @@
 import React from "react"
-import { FolderIcon } from "./Shared/Icons"
+import { FolderIcon } from "../Shared/Icons"
 
 interface PickerButtonProps {
   swap: () => void
@@ -7,8 +7,8 @@ interface PickerButtonProps {
 
 export const PickerButton = ({swap}: PickerButtonProps) => {
   return (
-    <div className="pickerBtn" onClick={swap}>
+    <button className="pickerBtn" onClick={swap}>
       <FolderIcon x="20" y="20"/>
-    </div>
+    </button>
   )
 }
