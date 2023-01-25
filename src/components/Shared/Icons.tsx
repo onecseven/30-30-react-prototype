@@ -155,9 +155,86 @@ export const GenericIcon = ({ x, y }: IconProps) => {
   return <Icon x={x} y={y}></Icon>
 }
 
+export const FolderIcon = ({ x, y }: IconProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+      x={x}
+      y={y}
+      width={"60"}
+      heigth={"60"}
+    >
+      <path
+        className="icon"
+        style={getStyleObjectFromString("fill:currentColor")}
+        d="M447.1 96h-172.1L226.7 50.75C214.7 38.74 198.5 32 181.5 32H63.1c-35.35 0-64 28.66-64 64v320c0 35.34 28.65 64 64 64h384c35.35 0 64-28.66 64-64V160C511.1 124.7 483.3 96 447.1 96zM463.1 416c0 8.824-7.178 16-16 16h-384c-8.822 0-16-7.176-16-16V96c0-8.824 7.178-16 16-16h117.5c4.273 0 8.293 1.664 11.31 4.688L255.1 144h192c8.822 0 16 7.176 16 16V416z"
+      />
+    </svg>
+  )
+}
+
+export const ClockIcon = ({ x, y }: IconProps) => {
+  return (
+    <svg
+      x={x}
+      y={y}
+      viewBox="0 0 300 150"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:svg="http://www.w3.org/2000/svg"
+    >
+      <g id="layer1" xmlSpace="preserve">
+        <circle
+          style={getStyleObjectFromString(
+            "fill:none;stroke:currentColor;stroke-width:2.76601;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+          )}
+          id="path1640"
+          cx="109.21608"
+          cy="121.23831"
+          r="8.6356897"
+        />
+        <rect
+          style={getStyleObjectFromString(
+            "fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:1.89509;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+          )}
+          id="rect2461"
+          width="8.4906425"
+          height="2.225534"
+          x="104.97075"
+          y="110.21989"
+        />
+        <rect
+          style={getStyleObjectFromString(
+            "fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:1.89509;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+          )}
+          id="rect2461-7"
+          width="8.4906425"
+          height="2.225534"
+          x="104.97076"
+          y="129.77719"
+        />
+        <path
+          style={getStyleObjectFromString(
+            "fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:1.65307;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+          )}
+          d="m 108.39248,115.50054 v 6.50945"
+          id="path2667"
+        />
+        <path
+          style={getStyleObjectFromString(
+            "fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:1.69688;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+          )}
+          d="m 108.54257,122.24957 3.75003,3.32155"
+          id="path2673"
+        />
+      </g>
+    </svg>
+  )
+}
+
 export const ListIcon = ({ x, y }: IconProps) => {
   return (
-    <Icon x={x} y={y}  width="16" height="16">
+    <Icon x={x} y={y} width="16" height="16">
       <path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z" />
     </Icon>
   )
