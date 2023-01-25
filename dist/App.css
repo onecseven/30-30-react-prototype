@@ -2,37 +2,31 @@ html {
   text-align: center;
   font-family: 'Oswald', sans-serif;
   background-color: #fcb2b6;
-  gap: 10px;
+  grid-gap: 0px;
   min-width: 600px;
 }
 
-.topBar{
-  display: grid; 
-  grid-template-columns: 10fr 90fr ; 
-  margin-left: 25%;
-  grid-template-areas: 
-    "pickerBtn tName"; 
-}
 
+
+.topBar{
+  display: flex;
+  justify-content: center
+}
 .tName {
-  grid-area: tName;
+  all: unset;
   background-color: #ef5e66;
   height: 80px;
-  width: 70%;
-  max-width: 500px;
-  margin: 2px 0 0 0;
-  padding: 0 0 0 12px;
-  text-align: left;
+  padding: 0 10px 10px 10px;
   font-size: 3rem;
   color: #fcb2b6;
+
 }
 
 .pickerBtn{
-  grid-area: pickerBtn;
+  all: unset;
   background-color: #ef5e66;
-  width: 70px;
-  padding-top: 7%;
-  margin-right: 10px;
+  width: 90px;
+  height: 90px;
   border-radius: 1rem;
 }
 
@@ -63,7 +57,7 @@ html {
 }
 
 .svgTaskCard {
-  margin-left: -2%;
+  margin-right: 0.5%;
 }
 
 
