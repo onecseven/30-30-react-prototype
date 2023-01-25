@@ -16,10 +16,10 @@ export const SVGCard = ({ name, length, cEnd, cStart }: SVGCardProps) => {
       version="1.1"
       viewBox="0 0 138 38"
       xmlSpace="preserve"
-      width="650"
+      width="455"
       className="svgTaskCard"
       >
-      <g>
+      <g >
         <path
           fill="#e10915"
           strokeWidth="0.265"

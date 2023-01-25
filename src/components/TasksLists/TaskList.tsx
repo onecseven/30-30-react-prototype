@@ -16,15 +16,15 @@ export const TaskList = () => {
     }
   })
   return (
-    <>
+    <div className="taskList">
       {...tasks.slice(1).map((cTask) => {
         return (
-          <div>
+          <>
             <TaskCard task={cTask}></TaskCard>
             <br />
-          </div>
+          </>
         )
       })}
-    </>
+    </div>
   )
 }

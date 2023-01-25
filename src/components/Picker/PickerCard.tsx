@@ -13,11 +13,12 @@ export const PickerCard = ({ name, onClick }: PickerCardProps) => {
       version="1.1"
       viewBox="0 0 138 38"
       xmlSpace="preserve"
-      width="650"
+      width="450"
       className="svgTaskCard"
       onClick={onClick}
+      transform="scale(0.77)"
     >
-      <g>
+      <g >
         <path
           fill="#e10915"
           strokeWidth="0.265"

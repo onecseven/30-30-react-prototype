@@ -1,11 +1,45 @@
 html {
-  margin: -10% 15% 0 15%;
   text-align: center;
   font-family: 'Oswald', sans-serif;
   background-color: #fcb2b6;
-  display: inline-block;
-  scale:  0.77;
+  gap: 10px;
+  min-width: 600px;
+}
 
+.topBar{
+  display: grid; 
+  grid-template-columns: 10fr 90fr ; 
+  margin-left: 25%;
+  grid-template-areas: 
+    "pickerBtn tName"; 
+}
+
+.tName {
+  grid-area: tName;
+  background-color: #ef5e66;
+  height: 80px;
+  width: 70%;
+  max-width: 500px;
+  margin: 2px 0 0 0;
+  padding: 0 0 0 12px;
+  text-align: left;
+  font-size: 3rem;
+  color: #fcb2b6;
+}
+
+.pickerBtn{
+  grid-area: pickerBtn;
+  background-color: #ef5e66;
+  width: 70px;
+  padding-top: 7%;
+  margin-right: 10px;
+  border-radius: 1rem;
+}
+
+.pickerView {
+  backdrop-filter: brightness(25%);
+  max-width: 628px;
+  margin-left:25%;
 }
 
 .icon {
@@ -13,16 +47,14 @@ html {
   color: #fcb2b6;
 }
 .timerCircle {
+  margin-bottom: -5%;
+  margin-top: -5%;
 }
 
 .innerCircle   {
   transform: rotate(45);
 }
 
-.taskList {
-  width: 500px;
-  margin: 0 0% 0 30%;
-}
 
 .timerText {
   font-size: 125px;
