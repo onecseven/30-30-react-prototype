@@ -9,5 +9,6 @@ export const BGCircle = () => (
     cx="325"
     cy="325"
     strokeWidth="90"
+    
   ></circle>
 );
