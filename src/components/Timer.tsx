@@ -30,7 +30,7 @@ export const Timer = () => {
       width="650"
       height="650"
       className="timerCircle"
-      transform="scale(0.77)">
+      transform="scale(0.8)">
       <BGCircle />
       <ActiveCircle fLen={fLen} max={MAX} />
       {isPlaying ? <Pause cb={stop} /> : <Triangle cb={play} />}

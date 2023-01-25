@@ -162,8 +162,8 @@ export const FolderIcon = ({ x, y }: IconProps) => {
       viewBox="0 0 512 512"
       x={x}
       y={y}
-      width={"60"}
-      heigth={"60"}
+      width={"80"}
+      heigth={"80"}
     >
       <path
         className="icon"

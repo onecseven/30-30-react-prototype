@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react"
 import { Picker } from "./components/Picker/Picker"
-import { PickerButton } from "./components/PickerButton"
+import { PickerButton } from "./components/Picker/PickerButton"
 import { TimerView } from "./components/TimerView"
 import { TopBar } from "./components/TopBar"
 

@@ -16,7 +16,7 @@ export const SVGCard = ({ name, length, cEnd, cStart }: SVGCardProps) => {
       version="1.1"
       viewBox="0 0 138 38"
       xmlSpace="preserve"
-      width="455"
+      width="490"
       className="svgTaskCard"
       >
       <g >

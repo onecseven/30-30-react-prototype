@@ -6,7 +6,6 @@ import { TotalLength } from "./Timer/TotalLength"
 export const TimerView = () => {
   return (
     <div className="timerView">
-
       <TotalLength />
       <Timer />
       <TaskList />
