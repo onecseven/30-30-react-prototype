@@ -8,6 +8,7 @@ import { TaskList } from "../data"
 export const TaskStor = create<TaskStore>()((set, get) => ({
   status: "OVER",
   id: "",
+  color: "gray",
   name: "",
   length: -1,
   remaining_seconds: -1,

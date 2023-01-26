@@ -82,6 +82,7 @@ export const task_reducer = (
 export interface TaskStore {
   status: "TICKING" | "OVER"
   computed: [moment.Moment, moment.Moment] | null
+  color: string
   id: string
   name: string
   length: number
