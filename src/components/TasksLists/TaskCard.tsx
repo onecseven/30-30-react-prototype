@@ -1,7 +1,7 @@
 import moment from "moment"
 import React from "react"
 import { TaskStore } from "../../store/taskSlice"
-import { seconds_to_mmss } from "./seconds_to_mmss"
+import { seconds_to_mmss } from "../Shared/seconds_to_mmss"
 import { SVGCard } from "./SVGCard"
 
 interface taskCardProps {
