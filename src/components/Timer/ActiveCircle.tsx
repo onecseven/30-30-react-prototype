@@ -10,7 +10,7 @@ export const ActiveCircle = () => {
     /* incrementing left argument will continuously fill the circle */
     // strokeDasharray={`${fLen}, ${MAX}`}
     // strokeLinecap="round"
-    className="innerCircle"
+    className="innerCircle circle"
     id="innerCircle"
     r="250"
     cx="325"

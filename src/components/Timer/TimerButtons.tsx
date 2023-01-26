@@ -11,8 +11,8 @@ type TimerPositions =
 
 let positions: { [key in TimerPositions]: [number, number] } = {
   bottom: [325, 575],
-  bottomLeft: [165, 520],
-  bottomRight: [485, 520],
+  bottomLeft: [80, 400],
+  bottomRight: [570, 400],
   top: [325, 75],
   topRight: [485, 140],
   topLeft: [165, 140],

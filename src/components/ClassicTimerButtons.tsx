@@ -10,7 +10,8 @@ import {
   LockIcon
 } from "./Shared/Icons"
 
-//TODO Put these into TimerButtons individually and export them as DoneButton, SendToBottomButton etc
+//TODO Create the layout you want actually
+
 interface LabelProps {
   x: string
   y: string
@@ -27,14 +28,13 @@ let labelMaker = (seconds: number) => {
 const BtnLabel = ({ label = "", x, y }: LabelProps) => {
   return (
     <text
-     className="light-fill fillT"
+     className="light-fill fillT bold"
       x={x}
       y={y}
-      strokeWidth="0.265"
-      fontSize="80"
+      fontSize="48"
       xmlSpace="preserve"
     >
-      <tspan x={x} y={y} strokeWidth="0.265" fontSize="60">
+      <tspan x={x} y={y}  fontSize="48">
         {label}
       </tspan>
     </text>
@@ -70,11 +70,12 @@ export const ClassicTimerButtons = () => {
       <TimerBtn pos="bottom" cb={toggleLock}>
         {isLocked ? <LockIcon x="286" y="247"/>   : <OpenLockIcon x="286" y="247" />}
       </TimerBtn>
+      //FIXME position these correctly
       <TimerBtn pos="bottomLeft" cb={take}>
-        <BtnLabel x="120" y="540" label={`-${label}m`} />
+        <BtnLabel x="50" y="420" label={`-${label}m`} />
       </TimerBtn>
       <TimerBtn pos="bottomRight" cb={add}>
-        <BtnLabel label={`+${label}m`} x="433" y="541.5" />
+        <BtnLabel label={`+${label}m`} x="525" y="420" />
       </TimerBtn>
     </>
   )

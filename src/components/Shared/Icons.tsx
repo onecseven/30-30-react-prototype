@@ -38,7 +38,7 @@ const Icon = ({ x, y, children, width = "80", height = "90" }: IconProps) => {
   return (
     <svg
       fill={colorStrings.gray.light}
-      className="icon light-fill "
+      className="icon light-fill fillT"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       x={x}
@@ -76,6 +76,7 @@ export const GearIcon = ({ x, y }: IconProps) => {
 }
 
 export const OpenLockIcon = ({ x, y }: IconProps) => {
+  useColor()
   return (
     <Icon x={x} y={y} width="70" height="70">
       <path d="M360 144c0-44.2 35.8-80 80-80s80 35.8 80 80v48c0 17.7 14.3 32 32 32s32-14.3 32-32V144C576 64.5 511.5 0 432 0S288 64.5 288 144v48H64c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V256c0-35.3-28.7-64-64-64H352V144z" />
@@ -92,6 +93,7 @@ export const PenIcon = ({ x, y }: IconProps) => {
 }
 
 export const TrashIcon = ({ x, y }: IconProps) => {
+  useColor()
   return (
     <Icon x={x} y={y} width="70" height="70">
       <path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
@@ -237,6 +239,7 @@ export const ListIcon = ({ x, y }: IconProps) => {
 }
 
 export const LockIcon = ({ x, y }: IconProps) => {
+  useColor()
   return (
     <Icon x={x} y={y}>
       <path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z" />
