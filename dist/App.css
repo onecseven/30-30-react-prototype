@@ -109,6 +109,7 @@ body {
 
 .innerCircle {
   transform: rotate(45);
+  transition: all 0.35s ease-in-out;
 }
 
 .timerText {

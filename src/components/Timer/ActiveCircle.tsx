@@ -1,14 +1,17 @@
 import React from "react";
+import { useTick } from "../../store/useTick";
 
-export const ActiveCircle = ({ fLen, max }) => {
+export const ActiveCircle = () => {
+  useTick()
   return (
   <circle
     fill="none"
     transform="rotate(-90 325 325)"
     /* incrementing left argument will continuously fill the circle */
-    strokeDasharray={`${fLen}, ${max}`}
+    // strokeDasharray={`${fLen}, ${MAX}`}
     // strokeLinecap="round"
-    className="innerCircle dark-stroke"
+    className="innerCircle"
+    id="innerCircle"
     r="250"
     cx="325"
     cy="325"
