@@ -1,9 +1,12 @@
 import React from "react";
+import { useColor } from "../../store/useColor";
 
-export const ActiveCircle = ({ fLen, max }) => (
+export const ActiveCircle = ({ fLen, max }) => {
+  let {dark} = useColor()
+  return (
   <circle
     fill="none"
-    stroke="#e10915"
+    stroke={dark}
     transform="rotate(-90 325 325)"
     /* incrementing left argument will continuously fill the circle */
     strokeDasharray={`${fLen}, ${max}`}
@@ -14,4 +17,5 @@ export const ActiveCircle = ({ fLen, max }) => (
     cy="325"
     strokeWidth="90"
   ></circle>
-);
+)
+}

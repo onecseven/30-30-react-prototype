@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useColor } from "../../store/useColor"
 
 interface btnProps {
   label: string
@@ -26,14 +27,15 @@ export const SvgBtn = ({
   cb,
   children = null,
 }: SVGBtnProps) => {
+  let {light} = useColor()
   return (
     <>
       {children}
 
       <circle
         fill="transparent"
-        stroke={color}
-        className={"btnCircle" + " " + className}
+        stroke={light}
+        className={"btnCircle" + " " + className + 'light'}
         r="62.5"
         cx={x}
         cy={y}

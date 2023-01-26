@@ -1,33 +1,38 @@
-html {
+html  {
   text-align: center;
   font-family: 'Oswald', sans-serif;
-  background-color: #fcb2b6;
   grid-gap: 0px;
   min-width: 600px;
+  /* transition: background-color 2s ease-in-out;
+  transition: color 2s ease-in-out;
+  transition: fill 2s ease-in-out; */
+
 }
 
-
+html > * {
+  transition: color 2s ease-in-out;
+  transition: fill 2s ease-in-out;
+  transition: background-color 2s ease-in-out;
+  /* transition: background 2s ease-in-out; */
+}
 
 .topBar{
   display: flex;
   justify-content: center
 }
+
 .tName {
   all: unset;
-  background-color: #ef5e66;
   height: 80px;
   padding: 0 10px 10px 10px;
   font-size: 3rem;
-  color: #fcb2b6;
-
 }
 
 .pickerBtn{
   all: unset;
-  background-color: #ef5e66;
   width: 90px;
   height: 90px;
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
 }
 
 .pickerView {
@@ -37,8 +42,8 @@ html {
 }
 
 .icon {
-  background-color: #fcb2b6;
-  color: #fcb2b6;
+  /* background-color: #fcb2b6;
+  color: #fcb2b6; */
 }
 .timerCircle {
   margin-bottom: -5%;
@@ -59,21 +64,6 @@ html {
 .svgTaskCard {
   margin-right: 0.5%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .taskCard {
   font-family: 'Oswald', sans-serif;

@@ -9,6 +9,7 @@ import {
   TrashIcon,
   LockIcon
 } from "./Shared/Icons"
+import { useColor } from "../store/useColor"
 
 //TODO Put these into TimerButtons individually and export them as DoneButton, SendToBottomButton etc
 interface LabelProps {
@@ -25,11 +26,12 @@ let labelMaker = (seconds: number) => {
 }
 
 const BtnLabel = ({ label = "", x, y }: LabelProps) => {
+  let {light} = useColor()
   return (
     <text
       x={x}
       y={y}
-      fill="#fcb2b6"
+      fill={light}
       strokeWidth="0.265"
       fontSize="80"
       xmlSpace="preserve"

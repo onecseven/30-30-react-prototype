@@ -1,9 +1,12 @@
 import React from "react";
+import { useColor } from "../../store/useColor";
 
-export const BGCircle = () => (
+export const BGCircle = () => {
+  let {medium} = useColor()
+  return (
   <circle
     fill="none"
-    stroke="#ef5e66"
+    stroke={medium}
     className="circle"
     r="250"
     cx="325"
@@ -11,4 +14,4 @@ export const BGCircle = () => (
     strokeWidth="90"
     
   ></circle>
-);
+)};

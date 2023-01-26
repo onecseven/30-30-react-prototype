@@ -1,4 +1,5 @@
 import React from "react"
+import { useColor } from "../../store/useColor"
 
 interface IconProps {
   x: string
@@ -34,10 +35,13 @@ const getStyleObjectFromString = (str) => {
 }
 
 const Icon = ({ x, y, children, width = "80", height = "90" }: IconProps) => {
+  let {light} = useColor()
   return (
     <svg
       className="icon"
-      fill="currentColor"
+      fill={light}
+      color={light}
+      backgroundColor={light}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       x={x}
@@ -99,10 +103,11 @@ export const TrashIcon = ({ x, y }: IconProps) => {
 }
 
 export const SendToBottomIcon = ({ x, y }: IconProps) => {
+  let {light} = useColor()
   return (
     <svg
       className="icon"
-      fill="currentColor"
+      fill={light}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 700 700"
       x={x}
@@ -118,7 +123,7 @@ export const SendToBottomIcon = ({ x, y }: IconProps) => {
         />
         <rect
           style={getStyleObjectFromString(
-            "fill:transparent;fill-opacity:0;stroke:currentColor;stroke-width:35.3357;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+            `fill:transparent;fill-opacity:0;stroke:${light};stroke-width:35.3357;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1`
           )}
           id="rect1539"
           width="129.10551"
@@ -128,7 +133,7 @@ export const SendToBottomIcon = ({ x, y }: IconProps) => {
         />
         <rect
           style={getStyleObjectFromString(
-            "fill:transparent;fill-opacity:0;stroke:currentColor;stroke-width:35.3357;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+            `fill:transparent;fill-opacity:0;stroke:${light};stroke-width:35.3357;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1`
           )}
           id="rect1539-0"
           width="129.10551"
@@ -138,7 +143,7 @@ export const SendToBottomIcon = ({ x, y }: IconProps) => {
         />
         <rect
           style={getStyleObjectFromString(
-            "fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:35.33599949;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;fill-rule:nonzero"
+            `fill:${light};fill-opacity:1;stroke:${light};stroke-width:35.33599949;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;fill-rule:nonzero`
           )}
           id="rect1539-0-4"
           width="129.10551"
@@ -156,6 +161,7 @@ export const GenericIcon = ({ x, y }: IconProps) => {
 }
 
 export const FolderIcon = ({ x, y }: IconProps) => {
+  let {light} = useColor()
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -167,7 +173,7 @@ export const FolderIcon = ({ x, y }: IconProps) => {
     >
       <path
         className="icon"
-        style={getStyleObjectFromString("fill:currentColor")}
+        style={getStyleObjectFromString(`fill:${light}`)}
         d="M447.1 96h-172.1L226.7 50.75C214.7 38.74 198.5 32 181.5 32H63.1c-35.35 0-64 28.66-64 64v320c0 35.34 28.65 64 64 64h384c35.35 0 64-28.66 64-64V160C511.1 124.7 483.3 96 447.1 96zM463.1 416c0 8.824-7.178 16-16 16h-384c-8.822 0-16-7.176-16-16V96c0-8.824 7.178-16 16-16h117.5c4.273 0 8.293 1.664 11.31 4.688L255.1 144h192c8.822 0 16 7.176 16 16V416z"
       />
     </svg>
