@@ -9,9 +9,6 @@ TimerStore.getState().dispatch("setTaskList", data)
 PickerStor.getState().dispatch("set", [data, second])
 
 const body = document.getElementsByTagName("BODY")[0]
-const root = document.createElement("div")
+body.id = "root"
 
-root.id = "root"
-
-body.appendChild(root)
-ReactDOM.render(<App />, root)
+ReactDOM.render(<App />, body)
