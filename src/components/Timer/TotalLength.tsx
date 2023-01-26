@@ -5,7 +5,6 @@ export function seconds_to_hhmmss(num: number) {
   return new Date(num * 1000).toISOString().substr(11, 8);
 }
 
-//TODO make this look as it should
 
 export const TotalLength = () => {
   let {remaining_seconds, id} = useTaskStor(state => state)

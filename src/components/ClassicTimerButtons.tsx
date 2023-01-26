@@ -70,7 +70,6 @@ export const ClassicTimerButtons = () => {
       <TimerBtn pos="bottom" cb={toggleLock}>
         {isLocked ? <LockIcon x="286" y="247"/>   : <OpenLockIcon x="286" y="247" />}
       </TimerBtn>
-      //FIXME position these correctly
       <TimerBtn pos="bottomLeft" cb={take}>
         <BtnLabel x="50" y="420" label={`-${label}m`} />
       </TimerBtn>
