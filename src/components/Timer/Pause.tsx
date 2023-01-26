@@ -3,15 +3,15 @@ import { useColor } from "../../store/useColor";
 
 
 export const Pause = ({ cb }) =>{
-  let {dark} = useColor()
+  useColor()
   return (
   <g onClick={cb}>
     <path
-      fill={dark}
+      className="dark-fill fillT"
       d="M245 160h60v160H245zm140 "
     ></path>
     <path
-      fill={dark}
+      className="dark-fill fillT"
       d="M345 160h60v160H345zm140 "
     ></path>
   </g>

@@ -1,47 +1,106 @@
-html  {
+html {
   text-align: center;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   grid-gap: 0px;
   min-width: 600px;
-  /* transition: background-color 2s ease-in-out;
-  transition: color 2s ease-in-out;
-  transition: fill 2s ease-in-out; */
-
+  /* transition: background-color 1s ease-in-out;
+  transition: color 1s ease-in-out;
+  transition: fill 1s ease-in-out; */
 }
 
 html > * {
-  transition: color 2s ease-in-out;
-  transition: fill 2s ease-in-out;
-  transition: background-color 2s ease-in-out;
-  /* transition: background 2s ease-in-out; */
+  transition: color 1s ease-in-out;
+  transition: stroke 1s ease-in-out;
+  transition: fill 1s ease-in-out;
+  transition: background-color 1s ease-in-out;
+
+  /* transition: background 1s ease-in-out; */
 }
 
-.topBar{
+svg
+  .light-stroke
+  .light-fill
+  .light-background
+  .light-color
+  .medium-background
+  .medium-stroke
+  .dark-fill
+  .dark-stroke {
+  transition: fill 1s ease-in-out;
+  transition: color 1s ease-in-out;
+  transition: stroke 1s ease-in-out;
+  transition: background-color 1s ease-in-out;
+}
+body {
+  background-color: #d0d5db;
+}
+.circle {
+  transition: stroke 1s ease-in-out;
+}
+
+.fillT {
+  fill: transparent;
+  transition: fill 1s ease-in-out;
+}
+
+.mainBtnT {
+  fill: transparent;
+  transition: fill 0.25s ease-in-out;
+}
+
+.bgT {
+  background-color: transparent;
+  transition: background-color 1s ease-in-out;
+}
+
+.cT {
+  color: transparent;
+  background-color: transparent;
+  transition: background-color 1s ease-in-out;
+  transition: color 1s ease-in-out;
+}
+
+.topBar {
   display: flex;
-  justify-content: center
+  justify-content: center;
+  transition: background-color 1s ease-in-out;
 }
 
 .tName {
-  all: unset;
   height: 80px;
-  padding: 0 10px 10px 10px;
+  padding-right: 1%;
+  padding-left: 1%;
   font-size: 3rem;
 }
 
-.pickerBtn{
-  all: unset;
-  width: 90px;
-  height: 90px;
-  /* border-radius: 1rem; */
+.pickerBtn {
+  width: 100px;
+  background-color: transparent;
+  transition: background-color 1s ease-in-out;
+  margin-right: 1%;
+  height: 80px;
+  border-radius: 1rem;
 }
 
 .pickerView {
   backdrop-filter: brightness(25%);
   max-width: 628px;
-  margin-left:25%;
+  margin-left: 25%;
+}
+
+.stubborn {
+  stroke: transparent;
+  fill: transparent;
+  fill-opacity: 0;
+  stroke-width: 35.3357;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: none;
+  stroke-opacity: 1;
 }
 
 .icon {
+  fill: transparent;
   /* background-color: #fcb2b6;
   color: #fcb2b6; */
 }
@@ -50,10 +109,9 @@ html > * {
   margin-top: -5%;
 }
 
-.innerCircle   {
+.innerCircle {
   transform: rotate(45);
 }
-
 
 .timerText {
   font-size: 125px;
@@ -66,7 +124,7 @@ html > * {
 }
 
 .taskCard {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   border-radius: 45px;
   width: 10fr;
   margin: 0 1.5fr 1.5fr 1.5fr;
@@ -85,7 +143,6 @@ html > * {
 .icon {
   grid-area: icon;
 }
-
 
 .length {
   line-height: 5%;

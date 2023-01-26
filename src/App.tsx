@@ -6,19 +6,14 @@ import { TopBar } from "./components/TopBar"
 import { useColor } from "./store/useColor"
 
 export const App = () => {
-  const { light } = useColor()
+  useColor()
   const [showPicker, setPicker] = useState(false)
   const swap = useCallback(() => {
     setPicker(!showPicker)
   }, [showPicker])
-  useEffect(() => {
-    document.body.style = `background-color: ${light};`
-    return () => {
-    }
-  }, [light])
-  
+
   return (
-      <div className="App" style={{"background-color": light}}>
+      <div className="App" >
         <TopBar swap={swap} />
         {showPicker ? <Picker swap={swap} /> : <TimerView />}
       </div>

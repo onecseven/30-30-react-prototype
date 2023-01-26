@@ -1,14 +1,15 @@
+import { useEffect } from "react"
 import { Color } from "../data"
 import { useTaskStor } from "./store"
 
 type cssColor = {
-    "light": string,
-    "medium": string,
-    "dark": string,
-    "name": Color
+  light: string
+  medium: string
+  dark: string
+  name: Color
 }
 
-const colorStrings = {
+export const colorStrings = {
   gray: {
     light: "#d0d5db",
     medium: "#9aa3b0",
@@ -68,5 +69,38 @@ const colorStrings = {
 
 export const useColor = (): cssColor => {
   const color = useTaskStor((state) => state.color)
-  return {...colorStrings[color], name: color}
+  const { light, dark, medium } = colorStrings[color]
+  useEffect(() => {
+    document.body.style = `background-color: ${light};`
+    for (let icon of document.getElementsByClassName("light-stroke")) {
+      icon.style = ` stroke: ${light};`
+    }
+    for (let icon of document.getElementsByClassName("stubborn")) {
+      icon.style = `fill:transparent;fill-opacity:0;stroke-width:35.3357;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1; stroke: ${light};`
+    }
+    for (let icon of document.getElementsByClassName("light-fill")) {
+      icon.style = `transition: fill 2s ease-in-out;fill: ${light};`
+    }
+    for (let icon of document.getElementsByClassName("light-background")) {
+      icon.style = `background: ${light};`
+    }
+    for (let icon of document.getElementsByClassName("light-color")) {
+      icon.style = `color: ${light};`
+    }
+    for (let icon of document.getElementsByClassName("medium-background")) {
+      icon.style = `background: ${medium}; color: ${light}`
+    }
+    for (let icon of document.getElementsByClassName("medium-stroke")) {
+      icon.style = `stroke: ${medium};`
+    }
+    for (let icon of document.getElementsByClassName("dark-fill")) {
+      icon.style = `fill: ${dark};`
+    }
+    for (let icon of document.getElementsByClassName("dark-stroke")) {
+      icon.style = `stroke: ${dark};`
+    }
+    return () => {}
+  }, [color])
+
+  return { ...colorStrings[color], name: color }
 }
