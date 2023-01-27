@@ -75,11 +75,17 @@ export const useColor = (): cssColor => {
     for (let icon of document.getElementsByClassName("light-stroke")) {
       icon.style = ` stroke: ${light};`
     }
+    for (let icon of document.getElementsByClassName("light-fill-stroke")) {
+      icon.style = `transition: fill 1s ease-in-out, stroke 1s ease-in-out;fill:${light};stroke-width:35.3357;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1; stroke: ${light};`
+    }
+    for (let icon of document.getElementsByClassName("light-stroke")) {
+      icon.style = ` stroke: ${light};`
+    }
     for (let icon of document.getElementsByClassName("stubborn")) {
       icon.style = `fill:transparent;fill-opacity:0;stroke-width:35.3357;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1; stroke: ${light};`
     }
     for (let icon of document.getElementsByClassName("light-fill")) {
-      icon.style = `transition: fill 2s ease-in-out;fill: ${light};`
+      icon.style = `transition: fill 1s ease-in-out;fill: ${light};`
     }
     for (let icon of document.getElementsByClassName("light-background")) {
       icon.style = `background: ${light};`
@@ -92,6 +98,12 @@ export const useColor = (): cssColor => {
     }
     for (let icon of document.getElementsByClassName("medium-stroke")) {
       icon.style = `stroke: ${medium};`
+    }
+    for (let icon of document.getElementsByClassName("medium-fill")) {
+      icon.style = `fill: ${medium};`
+    }
+    for (let icon of document.getElementsByClassName("medium-color")) {
+      icon.style = `color: ${medium};`
     }
     for (let icon of document.getElementsByClassName("dark-fill")) {
       icon.style = `fill: ${dark};`

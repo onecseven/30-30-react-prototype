@@ -102,6 +102,7 @@ export const TrashIcon = ({ x, y }: IconProps) => {
 }
 
 export const SendToBottomIcon = ({ x, y }: IconProps) => {
+  useColor()
   return (
     <svg
       className="icon light-fill"
@@ -127,7 +128,6 @@ export const SendToBottomIcon = ({ x, y }: IconProps) => {
           y="88.1688"
         />
         <rect
-
           className="stubborn circle "
           id="rect1539-0"
           width="129.10551"
@@ -136,9 +136,7 @@ export const SendToBottomIcon = ({ x, y }: IconProps) => {
           y="300.59494"
         />
         <rect
-          style={getStyleObjectFromString(
-            `fill-opacity:1;stroke-width:35.33599949;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;fill-rule:nonzero`
-          )}
+          className=" circle light-fill-stroke"
           id="rect1539-0-4"
           width="129.10551"
           height="116.3347"
@@ -159,6 +157,7 @@ export const FolderIcon = ({ x, y }: IconProps) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
+      className="folderIcon"
       x={x}
       y={y}
       width={"80"}
@@ -175,26 +174,23 @@ export const FolderIcon = ({ x, y }: IconProps) => {
 export const ClockIcon = ({ x, y }: IconProps) => {
   return (
     <svg
+      viewBox="0 0 100 412"
       x={x}
       y={y}
-      viewBox="0 0 300 150"
+      width="80"
+      height="80"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:svg="http://www.w3.org/2000/svg"
     >
-      <g id="layer1" xmlSpace="preserve">
+      <g transform="scale(12), translate(-105, -104)">
         <circle
-          style={getStyleObjectFromString(
-            "fill:none;stroke:currentColor;stroke-width:2.76601;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-          )}
-          id="path1640"
+          className="stubbornClock medium-stroke sT"
           cx="109.21608"
           cy="121.23831"
           r="8.6356897"
         />
         <rect
-          style={getStyleObjectFromString(
-            "fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:1.89509;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-          )}
+          className="clock medium-fill fillT"
           id="rect2461"
           width="8.4906425"
           height="2.225534"
@@ -202,9 +198,7 @@ export const ClockIcon = ({ x, y }: IconProps) => {
           y="110.21989"
         />
         <rect
-          style={getStyleObjectFromString(
-            "fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:1.89509;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-          )}
+          className="clock medium-fill fillT"
           id="rect2461-7"
           width="8.4906425"
           height="2.225534"
@@ -212,17 +206,13 @@ export const ClockIcon = ({ x, y }: IconProps) => {
           y="129.77719"
         />
         <path
-          style={getStyleObjectFromString(
-            "fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:1.65307;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-          )}
+          className="stubbornClock medium-stroke sT "
           d="m 108.39248,115.50054 v 6.50945"
           id="path2667"
         />
         <path
-          style={getStyleObjectFromString(
-            "fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:1.69688;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-          )}
-          d="m 108.54257,122.24957 3.75003,3.32155"
+          className="stubbornClock medium-stroke sT"
+          d="m 108.44257,121.94957 4.75003,3.32155"
           id="path2673"
         />
       </g>

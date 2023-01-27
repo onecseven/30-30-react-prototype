@@ -32,7 +32,7 @@ export const SvgBtn = ({
 
       <circle
         fill="transparent"
-        stroke={colorStrings.gray.light}
+        stroke="transparent"
         className="light-stroke circle"
         r="62.5"
         cx={x}

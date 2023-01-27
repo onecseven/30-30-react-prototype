@@ -1,8 +1,9 @@
 html {
-  text-align: center;
+  text-align: left;
   font-family: "Oswald", sans-serif;
   grid-gap: 0px;
-  min-width: 600px;
+  overflow-x: hidden;
+  min-width: 500px;
   /* transition: background-color 1s ease-in-out;
   transition: color 1s ease-in-out;
   transition: fill 1s ease-in-out; */
@@ -49,6 +50,30 @@ body {
   transition: fill 1s ease-in-out;
 }
 
+
+.stubbornClock {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 2.76601;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: none;
+  stroke-opacity: 1;
+  transition: stroke 1s ease-in-out;
+
+}
+
+.clock {
+  fill-opacity: 1;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: none;
+  stroke-opacity: 1;
+  paint-order: normal;
+}
+
+
 .bgT {
   background-color: transparent;
   transition: background-color 1s ease-in-out;
@@ -61,14 +86,19 @@ body {
   transition: color 1s ease-in-out;
 }
 
+.folderIcon {
+  margin: 0px 10px 10px 10px;
+}
+
 .topBar {
   display: flex;
-  justify-content: center;
-  transition: background-color 1s ease-in-out;
+  justify-content: left;
+  transition: all 1s ease-in-out;
 }
 
 .tName {
   height: 80px;
+  width: 442px;
   padding-right: 1%;
   padding-left: 1%;
   font-size: 3rem;
@@ -97,19 +127,46 @@ body {
   transition: stroke 2s ease-in-out;
 }
 
+.stubborn {
+  stroke-width: 35.3357;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: none;
+  transition: stroke 2s ease-in-out;
+}
+
+.totalLength {
+  height: 80px;
+  padding-top: 1px;
+  padding-left: -2.5%;
+  font-size: 3rem;
+  transition: color 1s ease-in-out;
+  color:transparent;
+}
+
+.fsT {
+  stroke: transparent;
+  fill:transparent;
+  transition: stroke 2s ease-in-out;
+  transition: fill 2s ease-in-out;
+}
+
+.bold {
+  font: bold;
+}
+
 .icon {
   fill: transparent;
   /* background-color: #fcb2b6;
   color: #fcb2b6; */
 }
 .timerCircle {
-  margin-bottom: -5%;
-  margin-top: -5%;
+  transform: translate(-10%,-15%) scale(0.8);
 }
 
 .innerCircle {
   transform: rotate(45);
-  transition: all 0.35s ease-in-out;
+  transition: all 0.2s linear;
 }
 
 .timerText {
@@ -120,6 +177,10 @@ body {
 
 .svgTaskCard {
   margin-right: 0.5%;
+}
+
+.taskList{
+  margin: -175px 0 0 13px;
 }
 
 .taskCard {
@@ -143,23 +204,3 @@ body {
   grid-area: icon;
 }
 
-.length {
-  line-height: 5%;
-  font-size: 25px;
-  margin: 30% 0% 0% 50%;
-  grid-area: length;
-}
-.cTimes {
-  margin-left: auto;
-  margin-right: 25%;
-  line-height: 5%;
-  margin-top: 3%;
-  font-size: 25px;
-  grid-area: cTimes;
-}
-.taskName {
-  line-height: 5%;
-  font-size: 80px;
-  padding: 7% 0% 7% 15%;
-  grid-area: taskName;
-}
