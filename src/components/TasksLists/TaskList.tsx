@@ -17,8 +17,8 @@ export const TaskList = () => {
   return (
     <div className="taskList">
       <>
-      <CurrentTask />
-       <br/>
+        <CurrentTask />
+        <br />
         {...tasks.slice(1).map((cTask) => {
           return (
             <>

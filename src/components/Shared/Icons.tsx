@@ -66,6 +66,26 @@ export const CheckMarkIcon = ({ x, y }: IconProps) => {
     </Icon>
   )
 }
+export const LineIcon = ({ x, y }: IconProps) => {
+  useColor()
+  return (
+    <svg
+      className="medium-stroke circle"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 52 52"
+      width="500"
+      height="100px"
+    >
+      <line
+        x1="-98"
+        y1="25"
+        x2="148"
+        y2="25"
+        style={{strokeWidth: "6", strokeLinecap:"round"}}
+      />
+    </svg>
+  )
+}
 
 export const GearIcon = ({ x, y }: IconProps) => {
   return (

@@ -165,7 +165,7 @@ body {
 
 .innerCircle {
   transform: rotate(45);
-  transition: all 0.2s linear;
+  transition: all 1s linear;
 }
 
 .timerText {
