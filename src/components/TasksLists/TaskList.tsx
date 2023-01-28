@@ -8,12 +8,13 @@ export const TaskList = () => {
   let isLooping = useTimerStore((state) => state.looping)
   let after_break = false
   tasks = tasks.map((task) => {
-    if (task.name === "BREAK" && !isLooping) after_break = true
+    if (task.name === "_BREAK" && !isLooping) after_break = true 
     if (!after_break) return task
     else {
       return { ...task, computed: null }
     }
   })
+  if (isLooping) tasks = tasks.filter(task => task.name !== "_BREAK")
   return (
     <div className="taskList">
       <>
