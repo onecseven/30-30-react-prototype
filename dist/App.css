@@ -93,7 +93,6 @@ body {
 .topBar {
   display: flex;
   justify-content: left;
-  transition: all 1s ease-in-out;
 }
 
 .tName {
@@ -114,9 +113,9 @@ body {
 }
 
 .pickerView {
-  backdrop-filter: brightness(25%);
-  max-width: 628px;
-  margin-left: 25%;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 589px;
 }
 
 .stubborn {

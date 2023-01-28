@@ -17,7 +17,7 @@ export const Timer = () => {
       xmlns="http://www.w3.org/2000/svg"
       width="650"
       height="650"
-      className="timerCircle"
+      className="timerCircle">
       <BGCircle />
       <ActiveCircle />
       <Playback/>
