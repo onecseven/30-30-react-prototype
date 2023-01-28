@@ -1,7 +1,6 @@
 import React from "react"
-import { useTaskStor, useTimerStore } from "../../store/store"
+import { useTimerStore } from "../../store/store"
 import { CurrentTask } from "./CurrentTask"
-import { SVGCard } from "./SVGCard"
 import { TaskCard } from "./TaskCard"
 
 export const TaskList = () => {
@@ -17,14 +16,18 @@ export const TaskList = () => {
   })
   return (
     <div className="taskList">
-      {...tasks.slice(1).map((cTask) => {
-        return (
-          <>
-            <TaskCard task={cTask}></TaskCard>
-            <br />
-          </>
-        )
-      })}
+      <>
+      <CurrentTask />
+       <br/>
+        {...tasks.slice(1).map((cTask) => {
+          return (
+            <>
+              <TaskCard task={cTask}></TaskCard>
+              <br />
+            </>
+          )
+        })}
+      </>
     </div>
   )
 }
