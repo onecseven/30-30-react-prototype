@@ -89,6 +89,9 @@ body {
 .folderIcon {
   margin: 0px 10px 10px 10px;
 }
+.gearIcon {
+  margin: 5px 10px 10px 10px;
+}
 
 .topBar {
   display: flex;
@@ -97,10 +100,11 @@ body {
 
 .tName {
   height: 80px;
-  width: 442px;
+  width: 233px;
   padding-right: 1%;
   padding-left: 1%;
   font-size: 3rem;
+  margin-right: 1%;
 }
 
 .pickerBtn {
@@ -110,6 +114,14 @@ body {
   margin-right: 1%;
   height: 80px;
   border-radius: 1rem;
+}
+
+.settingsBtn {
+  width: 80;
+  background-color: transparent;
+  transition: background-color 1s ease-in-out;
+  height: 80px;
+  border-radius: 0 0 1rem 1rem;
 }
 
 .pickerView {
