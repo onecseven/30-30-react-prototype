@@ -84,7 +84,7 @@ export const tasklist_reducer = (
 
       /* if the current task is "BREAK", we have to push that to the back and set a new current task
       and if the timer isn't looping, then we should transition to "IDLE"*/
-      if (tasks[0].name === "BREAK") {
+      if (tasks[0].name === "_BREAK") {
         tasks.push(tasks.shift())
         taskDispatch(actions.task.setTask, { ...tasks[0] })
 

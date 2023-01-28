@@ -60,7 +60,7 @@ export class StopTask {
   color: Color = "gray"
   id = getUniqueID()
   status = "OVER"
-  name = "BREAK"
+  name = "_BREAK"
   length = 0
   remaining_seconds = 0
 }
@@ -75,9 +75,9 @@ export class Task implements Task {
   constructor(_name: string, _length: number) {
     this.color = get_color()
     this.name = _name
-    this.length = _length
-    // this.remaining_seconds = _length * 60
-    this.remaining_seconds = _length //dev
+    this.length = _length * 60
+    this.remaining_seconds = _length * 60
+    // this.remaining_seconds = _length //dev
     this.id
   }
 }
@@ -91,20 +91,20 @@ export class TaskList implements TaskList {
 
   constructor(_name: string, _tasks: Task[]) {
     this.name = _name
-    this.tasks = [..._tasks.slice()]
+    this.tasks = [..._tasks.slice(), new StopTask()]
   }
 }
 
 export default new TaskList("pollo", [
-  new Task("code", 1500),
-  new Task("break", 150),
-  new Task("code", 1500),
-  new Task("break", 10),
-  new Task("code", 1500),
-  new Task("break", 1500),
+  new Task("code", 25),
+  new Task("break", 5),
+  new Task("code", 25),
+  new Task("break", 5),
+  new Task("code", 25),
+  new Task("break", 25),
 ])
 
 export const second = new TaskList("pullo", [
-  new Task("smash", 1500),
-  new Task("break", 150),
+  new Task("smash", 25),
+  new Task("break", 5),
 ])

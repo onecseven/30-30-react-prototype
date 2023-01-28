@@ -8,8 +8,7 @@ const add_remove_seconds = (seconds: number, add: boolean) => {
   if (seconds > 7200) min = 30
   else if (seconds > 3600) min = 15
   else if (seconds > 600) min = 5
-  else if (seconds < 60) return seconds
-  console.log(seconds, min)
+  else if (seconds <= 60 && !add) return seconds
   if (add) return seconds + (min * 60)
   else return seconds - (min * 60)
 }

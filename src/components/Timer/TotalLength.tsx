@@ -10,7 +10,7 @@ export const TotalLength = () => {
   let { remaining_seconds, id } = useTaskStor((state) => state)
   let length = useTimerStore((state) =>
     state.tasks
-      .slice(0, state.tasks.map((task) => task.name).indexOf("BREAK"))
+      .slice(0, state.tasks.map((task) => task.name).indexOf("_BREAK"))
       .filter((task) => task.id !== id)
       .map((task) => task.length)
       .reduce((prev, curr) => prev + curr, 0)
