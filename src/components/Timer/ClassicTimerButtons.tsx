@@ -9,14 +9,9 @@ import {
   TrashIcon,
   LockIcon
 } from "../Shared/Icons"
+import { BtnLabel } from "./BtnLabel"
 
-//TODO Create the layout you want actually
 
-interface LabelProps {
-  x: string
-  y: string
-  label: string
-}
 let labelMaker = (seconds: number) => {
   let min = 1
   if (seconds > 7200) min = 30
@@ -25,21 +20,6 @@ let labelMaker = (seconds: number) => {
   return min
 }
 
-const BtnLabel = ({ label = "", x, y }: LabelProps) => {
-  return (
-    <text
-     className="light-fill fillT bold"
-      x={x}
-      y={y}
-      fontSize="48"
-      xmlSpace="preserve"
-    >
-      <tspan x={x} y={y}  fontSize="48">
-        {label}
-      </tspan>
-    </text>
-  )
-}
 
 export const ClassicTimerButtons = () => {
   const [isLocked, setIsLocked] = useState(false)

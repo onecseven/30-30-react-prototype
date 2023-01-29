@@ -7,7 +7,7 @@ export const Pause = ({ cb }) =>{
   return (
   <g onClick={cb}>
     <path
-      className="dark-fill fillT"
+      className="dark-fill fillT "
       d="M245 160h60v160H245zm140 "
     ></path>
     <path

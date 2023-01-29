@@ -32,6 +32,25 @@ svg
   transition: stroke 1s ease-in-out;
   transition: background-color 1s ease-in-out;
 }
+
+
+.fadeIn {
+  animation: fadeInAnimation 1s ease-in-out;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.lineStroke{ 
+  stroke-dasharray: 10 10 200;
+}
+
 body {
   background-color: #d0d5db;
 }

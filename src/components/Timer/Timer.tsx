@@ -1,13 +1,10 @@
 import React from "react"
-import { useTaskStor, useTimerStore } from "../../store/store"
 import { ActiveCircle } from "./ActiveCircle"
 import { BGCircle } from "./BGCircle"
-import { Pause } from "./Pause"
-import { seconds_to_mmss } from "../Shared/seconds_to_mmss"
 import { TimerText } from "./TimerText"
-import { Triangle } from "./Triangle"
 import { ClassicTimerButtons } from "./ClassicTimerButtons"
 import { Playback } from "./Playback"
+import { TatiTimerButtons } from "./TatiTimerButtons"
 
 
 
@@ -22,7 +19,8 @@ export const Timer = () => {
       <ActiveCircle />
       <Playback/>
       <TimerText  />
-      <ClassicTimerButtons />
+      {/* <ClassicTimerButtons /> */}
+      <TatiTimerButtons/>
     </svg>
   )
 }
