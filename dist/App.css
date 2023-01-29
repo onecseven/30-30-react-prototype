@@ -50,7 +50,6 @@ body {
   transition: fill 1s ease-in-out;
 }
 
-
 .stubbornClock {
   fill: none;
   stroke: transparent;
@@ -60,7 +59,6 @@ body {
   stroke-dasharray: none;
   stroke-opacity: 1;
   transition: stroke 1s ease-in-out;
-
 }
 
 .clock {
@@ -72,7 +70,6 @@ body {
   stroke-opacity: 1;
   paint-order: normal;
 }
-
 
 .bgT {
   background-color: transparent;
@@ -149,12 +146,14 @@ body {
 }
 
 .totalLength {
+  letter-spacing: -4px;
+  font-weight: bolder;
   height: 80px;
   padding-top: 1px;
   padding-left: -2.5%;
   font-size: 3rem;
   transition: color 1s ease-in-out;
-  color:transparent;
+  color: transparent;
 }
 
 .bold {
@@ -167,7 +166,7 @@ body {
   color: #fcb2b6; */
 }
 .timerCircle {
-  transform: translate(-10%,-15%) scale(0.8);
+  transform: translate(-10%, -15%) scale(0.8);
 }
 
 .innerCircle {
@@ -185,7 +184,7 @@ body {
   margin-right: 0.5%;
 }
 
-.taskList{
+.taskList {
   margin: -175px 0 0 13px;
 }
 
@@ -209,4 +208,3 @@ body {
 .icon {
   grid-area: icon;
 }
-
