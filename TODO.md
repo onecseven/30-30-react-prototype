@@ -4,4 +4,3 @@
 
 ## TODO add settingsView
 ### TODO mute sounds
-## TODO make letters closer together on total length
