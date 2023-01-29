@@ -167,7 +167,7 @@ export const SendToBottomIcon = ({ x, y }: IconProps) => {
           y="300.59494"
         />
         <rect
-          className=" circle light-fill-stroke"
+          className="circle light-fill-stroke"
           id="rect1539-0-4"
           width="129.10551"
           height="116.3347"
