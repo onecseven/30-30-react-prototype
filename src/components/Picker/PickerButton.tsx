@@ -2,12 +2,12 @@ import React from "react"
 import { FolderIcon } from "../Shared/Icons"
 
 interface PickerButtonProps {
-  swap: () => void
+  setView: () => void
 }
 
-export const PickerButton = ({swap}: PickerButtonProps) => {
+export const PickerButton = ({setView}: PickerButtonProps) => {
   return (
-    <div  className="medium-background  pickerBtn" onClick={swap}>
+    <div  className="medium-background  pickerBtn" onClick={setView}>
       <FolderIcon x="10" y="0"/>
     </div>
   )
