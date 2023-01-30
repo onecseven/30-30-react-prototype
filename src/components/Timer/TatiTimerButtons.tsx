@@ -43,7 +43,7 @@ export const TatiTimerButtons = () => {
       </TimerBtn>
 
       <TimerBtn pos="bottomRight" cb={toggleLoop}>
-        {looping ? <NoLoopIcon x="530" y="75"/> :  <LoopIcon  x="530" y="75" />}
+        {looping ? <NoLoopIcon x="530" y="365"/> :  <LoopIcon  x="530" y="365" />}
       </TimerBtn>
     </>
   )
