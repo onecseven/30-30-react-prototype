@@ -1,5 +1,5 @@
 import * as React from "react"
-import {  colorStrings} from "../../store/useColor"
+import {  colorStrings, useColor} from "../../store/useColor"
 
 interface btnProps {
   label: string
@@ -26,6 +26,7 @@ export const SvgBtn = ({
   cb,
   children = null,
 }: SVGBtnProps) => {
+  useColor()
   return (
     <>
       {children}
@@ -33,7 +34,7 @@ export const SvgBtn = ({
       <circle
         fill="transparent"
         stroke="transparent"
-        className="light-stroke circle"
+        className="light-stroke circle "
         r="62.5"
         cx={x}
         cy={y}
