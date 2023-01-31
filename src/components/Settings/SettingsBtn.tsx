@@ -1,22 +1,36 @@
 import React from "react"
-import { useTimerStore } from "../../store/store"
+import { useSettingsStore, useTimerStore } from "../../store/store"
+import { useColor } from "../../store/useColor"
 import { LoopIcon, NoLoopIcon } from "../Shared/icons/LoopIcon"
-import { VolumeIcon } from "../Shared/icons/VolumeIcon"
-import { BtnLabel } from "../Timer/BtnLabel"
+import { NoVolumeIcon, VolumeIcon } from "../Shared/icons/VolumeIcon"
+import { BtnLabel, BtnLabelColorAware } from "../Timer/BtnLabel"
 
 export const VolumeBtn = () => {
+  let {muted, dispatch} = useSettingsStore(state => state)
+  let toggle = () => dispatch("toggleMute")
   return (
-    <div className="fadeIn dark-background pickerBtn settings">
-      <VolumeIcon x="10" y="10" />
+    <div className="fadeIn dark-background pickerBtn settings" onClick={toggle}>
+      {muted ? <NoVolumeIcon x="10" y="10"/> : <VolumeIcon x="10" y="10" /> }
     </div>
   )
 }
 
+const MODERN = () => <BtnLabelColorAware label="MODERN" x="9" y="50" size="25" />
+const CLASSIC = () => <BtnLabelColorAware label="CLASSIC" x="9" y="50" size="25" />
+
 export const LayoutBtn = () => {
+  let {layout, dispatch} = useSettingsStore(state => state)
+  let setModern = () => dispatch("setLayout", "MODERN")
+  let setClassic = () => dispatch("setLayout", "CLASSIC")
+  let toggle = () => {
+    if (layout === "MODERN") setClassic()
+    else if (layout === "CLASSIC") setModern() 
+  }
   return (
-    <div className="fadeIn dark-background pickerBtn settings">
+    <div className="fadeIn dark-background pickerBtn settings" onClick={toggle}>
       <svg>
-        <BtnLabel label="MODERN" x="9" y="50" size="25" />
+        {layout === "CLASSIC" && <CLASSIC/>}
+        {layout === "MODERN" && <MODERN/>}
       </svg>
     </div>
   )

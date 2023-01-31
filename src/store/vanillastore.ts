@@ -3,7 +3,7 @@ import { TaskStore, task_reducer } from "./taskSlice"
 import { TaskListStore, tasklist_reducer } from "./taskListSlice"
 import { PickerStore, picker_reducer } from "./PickerSlice"
 import { TaskList } from "../data"
-
+import { Layout, MetaStore, Meta_reducer } from "./MetaSlice"
 
 export const TaskStor = create<TaskStore>()((set, get) => ({
   status: "OVER",
@@ -34,4 +34,13 @@ export const PickerStor = create<PickerStore>()((set) => ({
   taskLists: [],
   dispatch: (type: "string", data: string | TaskList[]) =>
     set((state) => picker_reducer(state, type, data)),
+}))
+
+export const SettingsStore = create<MetaStore>()((set) => ({
+  muted: false,
+  taskSound: false,
+  clearSound: false,
+  layout: "MODERN",
+  dispatch: (type: "string", data?: Layout) =>
+    set((state) => Meta_reducer(state, type, data)),
 }))

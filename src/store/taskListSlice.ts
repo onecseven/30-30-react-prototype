@@ -1,6 +1,6 @@
 import { TaskStore } from "./taskSlice"
 import { actions } from "./actions"
-
+import { SettingsStore } from "./vanillastore"
 export interface TaskListStore {
   status: "IDLE" | "TIMER_ACTIVE"
   name: string
@@ -70,6 +70,7 @@ export const tasklist_reducer = (
       /* Clear timer, get inner dispatch, make new tasks array*/
       if (state.timer) clearInterval(state.timer)
       let taskDispatch = state.getState().dispatch
+      let settingsDispatch = SettingsStore.getState().dispatch
       let tasks = state.tasks.slice(1)
       /* Depending on how the action was called we need to move the finished task differenly */
       if (payload === "preserve") tasks.push({ ...state.getState() })
@@ -90,14 +91,18 @@ export const tasklist_reducer = (
 
         if (!state.looping) {
           taskDispatch(actions.task.pause, null)
+          settingsDispatch(actions.meta.playClear)
           return {
             tasks: tasks.map((task) => ({ ...task, computed: null })),
             status: "IDLE",
           }
         }
       }
-      if (state.status === "TIMER_ACTIVE")
+      
+      if (state.status === "TIMER_ACTIVE") {
+        settingsDispatch(actions.meta.playTaskDone)
         return { ...start_timer({ ...state, tasks }) }
+      }
 
       /* handles calls when the timer is off */
       return {

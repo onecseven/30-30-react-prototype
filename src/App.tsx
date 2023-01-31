@@ -6,6 +6,7 @@ import { TimerView } from "./components/TimerView"
 import { TopBar } from "./components/TopBar"
 import { useColor } from "./store/useColor"
 import { useTitle } from "./store/useTitle"
+import { useAudio } from "./store/useAudio"
 
 const view_types = ["TIMER", "PICKER", "SETTINGS"] as const
 
@@ -14,6 +15,7 @@ export type Views = typeof view_types[number]
 export const App = () => {
   useColor()
   useTitle()
+  useAudio()
 
   /*
   So, we have three components that we want to show conditionally.
@@ -22,10 +24,10 @@ export const App = () => {
   Then we could have a f()() like, 
   */
 
-  const [currentView, setCurrentView] = useState<Views>("TIMER")
+  const [currentView, setCurrentView] = useState<Views>("SETTINGS")
 
   const setView = (view: Views) => () => {
-    if (currentView === view) setCurrentView("TIMER")
+    if (currentView === view) setCurrentView("SETTINGS")
     else setCurrentView(view)
   }
 
