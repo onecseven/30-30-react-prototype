@@ -4,6 +4,7 @@ html {
   grid-gap: 0px;
   overflow-x: hidden;
   min-width: 500px;
+  max-width: 500px;
   /* transition: background-color 1s ease-in-out;
   transition: color 1s ease-in-out;
   transition: fill 1s ease-in-out; */
