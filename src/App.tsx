@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react"
 import { Picker } from "./components/Picker/Picker"
+import { Settings } from "./components/Settings/Settings"
 
 import { TimerView } from "./components/TimerView"
 import { TopBar } from "./components/TopBar"
@@ -28,17 +29,12 @@ export const App = () => {
     else setCurrentView(view)
   }
 
-  /*
-  const [showPicker, setPicker] = useState<boolean>(false)
-  const swap = useCallback(() => {
-    setPicker(!showPicker)
-  }, [showPicker])
-  */
   return (
     <div className="App">
       <TopBar swap={setView} />
       {currentView === "TIMER" && <TimerView />}
       {currentView === "PICKER" && <Picker swap={setView("TIMER")} />}
+      {currentView === "SETTINGS" && <Settings swap={setView("SETTINGS")} />}
     </div>
   )
 }

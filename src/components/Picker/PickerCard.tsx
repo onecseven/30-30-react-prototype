@@ -26,7 +26,7 @@ export const PickerCard = ({ name, onClick }: PickerCardProps) => {
         ></path>
       </g>
       <PickerLabel name={name} />
-      <ListIcon x="8" y="0" />
+      <ListIcon x="8" y="10" />
     </svg>
   )
 }
