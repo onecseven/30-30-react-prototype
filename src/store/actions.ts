@@ -20,4 +20,10 @@ export const actions = {
     select: "select",
     set: "set",
   },
+  meta: {
+    playTaskDone: "playTaskDone",
+    playClear: "playClear",
+    toggleMute: "toggleMute",
+    setLayout: "setLayout"
+  }
 }

@@ -1,7 +1,12 @@
 import React from "react"
 import { useColor } from "../../store/useColor"
 
-export const Settings = () => {
+interface PickerProps {
+  swap: () => void
+}
+
+
+export const Settings = ({swap}: PickerProps) => {
   let {light} = useColor()
   return (
     <>
