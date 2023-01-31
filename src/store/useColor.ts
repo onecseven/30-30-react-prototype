@@ -76,7 +76,7 @@ export const useColor = (): cssColor => {
       icon.style = ` stroke: ${light};`
     }
     for (let icon of document.getElementsByClassName("light-fill-stroke")) {
-      icon.style = `transition: fill 1s ease-in-out, stroke 1s ease-in-out;fill:${light};stroke-width:35.3357;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1; stroke: ${light};`
+      icon.style = `transition: fill 0.325s linear, stroke 0.325s linear;fill:${light};stroke-width:35.3357;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1; stroke: ${light};`
     }
     for (let icon of document.getElementsByClassName("light-stroke")) {
       icon.style = ` stroke: ${light};`
@@ -85,7 +85,7 @@ export const useColor = (): cssColor => {
       icon.style = `fill:transparent;fill-opacity:0;stroke-width:35.3357;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1; stroke: ${light};`
     }
     for (let icon of document.getElementsByClassName("light-fill")) {
-      icon.style = `transition: fill 1s ease-in-out;fill: ${light};`
+      icon.style = `transition: fill 0.325s linear;fill: ${light};`
     }
     for (let icon of document.getElementsByClassName("light-background")) {
       icon.style = `background: ${light};`
