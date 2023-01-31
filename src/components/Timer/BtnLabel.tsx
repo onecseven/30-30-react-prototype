@@ -4,19 +4,19 @@ interface LabelProps {
   x: string
   y: string
   label: string
+  size?: string
 }
 
-export const BtnLabel = ({ label = "", x, y }: LabelProps) => {
+export const BtnLabel = ({ label = "", x, y, size="48px"}: LabelProps) => {
   return (
     <text
-      className="light-fill fillT"
+      className="fadeIn light-fill fillT"
       x={x}
       y={y}
-      fontSize="48"
+      fontSize={size}
       fontWeight="bolder"
-      xmlSpace="preserve"
     >
-      <tspan x={x} y={y} fontSize="48">
+      <tspan x={x} y={y} fontSize={size}>
         {label}
       </tspan>
     </text>

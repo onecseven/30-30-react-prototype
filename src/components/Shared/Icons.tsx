@@ -7,6 +7,7 @@ export interface IconProps {
   children?: React.ReactNode
   width?: string
   height?: string
+  viewbox?: string
 }
 
 const formatStringToCamelCase = (str) => {
@@ -34,13 +35,13 @@ const getStyleObjectFromString = (str) => {
   return style
 }
 
-export const Icon = ({ x, y, children, width = "80", height = "90" }: IconProps) => {
+export const Icon = ({ x, y, children, width = "80", height = "90", viewbox="0 0 512 512"}: IconProps) => {
   return (
     <svg
       fill={colorStrings.gray.light}
       className="icon light-fill fillT"
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 512 512"
+      viewBox={viewbox}
       x={x}
       y={y}
       width={width}

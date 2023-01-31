@@ -7,7 +7,7 @@ interface PickerButtonProps {
 
 export const PickerButton = ({setView}: PickerButtonProps) => {
   return (
-    <div  className="medium-background  pickerBtn" onClick={setView}>
+    <div  className="medium-background pickerBtn" onClick={setView}>
       <FolderIcon x="10" y="10"/>
     </div>
   )

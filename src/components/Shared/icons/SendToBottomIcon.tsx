@@ -7,7 +7,7 @@ export const SendToBottomIcon = ({ x, y }: IconProps) => {
   useColor();
   return (
     <svg
-      className="icon light-fill"
+      className="fadeIn icon light-fill"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 700 700"
       x={x}

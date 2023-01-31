@@ -111,6 +111,9 @@ export const useColor = (): cssColor => {
     for (let icon of document.getElementsByClassName("dark-stroke")) {
       icon.style = `stroke: ${dark};`
     }
+    for (let icon of document.getElementsByClassName("dark-background")) {
+      icon.style = `background: ${dark}; color: ${light}`
+    }
     return () => {}
   }, [color])
 

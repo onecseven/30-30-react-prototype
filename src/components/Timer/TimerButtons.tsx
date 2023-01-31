@@ -8,6 +8,8 @@ type TimerPositions =
   | "top"
   | "topRight"
   | "topLeft"
+  | "midRight"
+  | "midLeft"
 
 let positions: { [key in TimerPositions]: [number, number] } = {
   bottom: [325, 575],
@@ -16,6 +18,8 @@ let positions: { [key in TimerPositions]: [number, number] } = {
   top: [325, 75],
   topRight: [485, 140],
   topLeft: [165, 140],
+  midRight: [90, 245],
+  midLeft: [560, 245],
 }
 
 interface TimerBtnProps {
