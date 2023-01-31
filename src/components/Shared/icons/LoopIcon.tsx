@@ -7,7 +7,7 @@ export const LoopIcon = ({ x, y }: IconProps) => {
   return (
     <svg
       fill={colorStrings.gray.light}
-      className="icon light-fill fillT"
+      className="fadeIn icon light-fill fillT"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 640 512"
       x={x}

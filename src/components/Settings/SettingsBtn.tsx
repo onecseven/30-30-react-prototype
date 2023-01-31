@@ -1,5 +1,6 @@
 import React from "react"
-import { LoopIcon } from "../Shared/icons/LoopIcon"
+import { useTimerStore } from "../../store/store"
+import { LoopIcon, NoLoopIcon } from "../Shared/icons/LoopIcon"
 import { VolumeIcon } from "../Shared/icons/VolumeIcon"
 import { BtnLabel } from "../Timer/BtnLabel"
 
@@ -21,10 +22,12 @@ export const LayoutBtn = () => {
   )
 }
 export const LoopBtn = () => {
+  let {dispatch, looping} = useTimerStore(state => state)
+  let toggleLoop = () => dispatch("toggleLoop", null)
   return (
-    <div className="fadeIn dark-background pickerBtn settings">
+    <div className="fadeIn dark-background pickerBtn settings" onClick={toggleLoop}>
       <svg>
-        <LoopIcon x="15" y="6" />
+        {looping ? <NoLoopIcon x="15" y="6"/> :  <LoopIcon x="15" y="6" /> }
       </svg>
     </div>
   )

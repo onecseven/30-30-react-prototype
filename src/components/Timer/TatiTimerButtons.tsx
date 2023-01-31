@@ -1,8 +1,6 @@
 import React from "react"
 import { useTimerStore, useTaskStor } from "../../store/store"
 import { TimerBtn } from "./TimerButtons"
-import { LoopIcon } from "../Shared/icons/LoopIcon"
-import { NoLoopIcon } from "../Shared/icons/LoopIcon"
 import { SendToBottomIcon } from "../Shared/icons/SendToBottomIcon"
 import { BtnLabel } from "./BtnLabel"
 
