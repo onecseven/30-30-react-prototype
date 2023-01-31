@@ -34,7 +34,6 @@ svg
   transition: background-color 1s ease-in-out;
 }
 
-
 .fadeIn {
   animation: fadeInAnimation 1s ease-in-out;
 }
@@ -48,7 +47,7 @@ svg
   }
 }
 
-.lineStroke{ 
+.lineStroke {
   stroke-dasharray: 10 10 200;
 }
 
@@ -147,6 +146,22 @@ body {
   text-align: center;
   max-width: 465px;
   margin-left: 24px;
+}
+.settingsView {
+  border-radius: 10px;
+  text-align: center;
+  max-width: 465px;
+  margin-left: 24px;
+  padding-bottom: 30px;
+}
+
+.innerSettings {
+  display: flex;
+  justify-content: center;
+}
+
+.settings {
+  margin: 10px;
 }
 
 .stubborn {
