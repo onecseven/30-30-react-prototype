@@ -1,7 +1,7 @@
 import React from "react"
 import { Views } from "../App"
 import { PickerButton } from "./Picker/PickerButton"
-import { GearIcon } from "./Shared/Icons"
+import { GearIcon } from "./Shared/icons/GearIcon"
 import { TaskListName } from "./TasksLists/TaskListName"
 
 interface TopBarProps {

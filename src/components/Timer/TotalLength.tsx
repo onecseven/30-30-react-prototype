@@ -1,6 +1,6 @@
 import React from "react"
 import { useTimerStore, useTaskStor } from "../../store/store"
-import { ClockIcon } from "../Shared/Icons"
+import { ClockIcon } from "../Shared/icons/ClockIcon"
 
 export function seconds_to_hhmmss(num: number) {
   return new Date(num * 1000).toISOString().substr(11, 8)

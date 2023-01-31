@@ -2,7 +2,7 @@ import moment from "moment"
 import React from "react"
 import { Color } from "../../data"
 import { TaskStore } from "../../store/taskSlice"
-import { LineIcon } from "../Shared/Icons"
+import { LineIcon } from "../Shared/icons/LineIcon"
 import { seconds_to_mmss } from "../Shared/seconds_to_mmss"
 import { SVGCard } from "./SVGCard"
 

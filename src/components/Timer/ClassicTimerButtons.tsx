@@ -2,13 +2,11 @@ import React from "react"
 import {useState} from "react"
 import { useTimerStore, useTaskStor } from "../../store/store"
 import { TimerBtn } from "./TimerButtons"
-import {
-  CheckMarkIcon,
-  OpenLockIcon,
-  SendToBottomIcon,
-  TrashIcon,
-  LockIcon
-} from "../Shared/Icons"
+import { LockIcon } from "../Shared/icons/LockIcon"
+import { TrashIcon } from "../Shared/icons/TrashIcon"
+import { SendToBottomIcon } from "../Shared/icons/SendToBottomIcon"
+import { OpenLockIcon } from "../Shared/icons/OpenLockIcon"
+import { CheckMarkIcon } from "../Shared/icons/CheckMarkIcon"
 import { BtnLabel } from "./BtnLabel"
 
 

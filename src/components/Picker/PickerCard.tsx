@@ -1,5 +1,5 @@
 import React from "react"
-import { ListIcon } from "../Shared/Icons"
+import { ListIcon } from "../Shared/icons/ListIcon"
 
 interface PickerCardProps {
   name: string

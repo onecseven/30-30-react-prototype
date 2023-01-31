@@ -1,5 +1,5 @@
 import React from "react"
-import { FolderIcon } from "../Shared/Icons"
+import { FolderIcon } from "../Shared/icons/FolderIcon"
 
 interface PickerButtonProps {
   setView: () => void
