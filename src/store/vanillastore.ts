@@ -40,7 +40,7 @@ export const SettingsStore = create<MetaStore>()((set) => ({
   muted: false,
   taskSound: false,
   clearSound: false,
-  layout: "MODERN",
+  layout: "CLASSIC",
   dispatch: (type: "string", data?: Layout) =>
     set((state) => Meta_reducer(state, type, data)),
 }))

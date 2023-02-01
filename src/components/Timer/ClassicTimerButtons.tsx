@@ -26,7 +26,7 @@ export const ClassicTimerButtons = () => {
   let remaining = useTaskStor((state) => state.remaining_seconds)
   let play = () => dispatch("start", null)
   let stop = () => dispatch("stop", null)
-  let toggleLoop = () => dispatch("toggleLoop", null)
+  let del = () => dispatch("delete", null)
   let send_to_bottom = () => dispatch("sendBottom", "preserve")
   let done = () => dispatch("sendBottom", null)
   let add = () => taskDispatch("add", null)
@@ -37,16 +37,16 @@ export const ClassicTimerButtons = () => {
   return (
     <>
       <TimerBtn pos="top" cb={done}>
-        <CheckMarkIcon x="286.5" y="-250" />
+        <CheckMarkIcon x="286.5" y="32" />
       </TimerBtn>
       <TimerBtn pos="topLeft" cb={send_to_bottom}>
         <SendToBottomIcon x="115" y="97" />
       </TimerBtn>
-      {!isLocked && <TimerBtn pos="topRight" cb={() => null}>
-        <TrashIcon x="455" y="-190" />
+      {!isLocked && <TimerBtn pos="topRight" cb={del}>
+        <TrashIcon x="458" y="103" width="80" height="80" />
       </TimerBtn>}
       <TimerBtn pos="bottom" cb={toggleLock}>
-        {isLocked ? <LockIcon x="286" y="247"/>   : <OpenLockIcon x="286" y="247" />}
+        {isLocked ? <LockIcon x="290" y="527"/>   : <OpenLockIcon x="286" y="537" />}
       </TimerBtn>
       <TimerBtn pos="bottomLeft" cb={take}>
         <BtnLabel x="50" y="420" label={`-${label}m`} />

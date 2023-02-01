@@ -124,12 +124,11 @@ export const tasklist_reducer = (
       }
     }
     case actions.taskList.delete: {
-      if (state.tasks.length < 2) return state
+      if (state.tasks.length < 3) return state
       if (state.timer) clearInterval(state.timer)
       let tasks = state.tasks.slice(1)
       let taskDispatch = state.getState().dispatch
       taskDispatch(actions.task.setTask, { ...tasks[0] })
-
       return {
         timer: null,
         tasks: tasks.map((task) => ({ ...task, computed: null })),

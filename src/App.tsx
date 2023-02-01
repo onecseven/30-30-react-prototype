@@ -17,17 +17,10 @@ export const App = () => {
   useTitle()
   useAudio()
 
-  /*
-  So, we have three components that we want to show conditionally.
-  The least complicated way to do it would be... let's have state
-  that can be either PICKER / SETTINGS / TIMER. 
-  Then we could have a f()() like, 
-  */
-
-  const [currentView, setCurrentView] = useState<Views>("SETTINGS")
+  const [currentView, setCurrentView] = useState<Views>("TIMER")
 
   const setView = (view: Views) => () => {
-    if (currentView === view) setCurrentView("SETTINGS")
+    if (currentView === view) setCurrentView("TIMER")
     else setCurrentView(view)
   }
 
