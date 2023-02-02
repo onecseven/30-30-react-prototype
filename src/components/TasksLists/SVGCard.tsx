@@ -1,13 +1,18 @@
 import React from "react"
 import { Color } from "../../data"
+import { Layout } from "../../store/MetaSlice"
 import { colorStrings } from "../../store/useColor"
+import { KeyboardIcon } from "../Shared/icons/taskCardIcons/KeyboardIcon"
+import { MailIcon } from "../Shared/icons/taskCardIcons/MailIcon"
+import { TaskCardIcon } from "../Shared/icons/taskCardIcons/TaskCardIcon"
 
 type SVGCardProps = {
   name: string
   length: string
   cStart: string
   cEnd: string
-  color: Color
+  color: Color | "fill"
+  layout: Layout
   icon?: string
   fill?: string
 }
@@ -18,7 +23,9 @@ export const SVGCard = ({
   cEnd,
   cStart,
   color,
+  layout,
 }: SVGCardProps) => {
+  let computedColor = layout === "MODERN" ? "fill" : color
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -30,16 +37,16 @@ export const SVGCard = ({
     >
       <g>
         <path
-          className={`dark-${color} fillT`}
+          className={`dark-${computedColor} fillT`}
           strokeWidth="0.265"
           d="M3.532 9.05v19.426c.758 2.18 1.973 4.14 5.496 4.985l121.881-.226c2.946-.65 4.572-2.51 5.205-5.278l.073-19.16c-.494-2.822-2.342-4.415-4.953-5.313L9.051 3.412c-3.263.646-5.148 2.486-5.519 5.638z"
         ></path>
-
-        <CardName name={name} color={color} />
-        <CardLength length={length} color={color} />
-        <CompStart cStart={cStart} color={color} />
-        <CardArrow color={color} />
-        <CompEnd cEnd={cEnd} color={color} />
+        <TaskCardIcon type="sleep" color={layout === "MODERN" ? "stroke" : color+"-stroke"}/>
+        <CardName name={name} color={computedColor} />
+        <CardLength length={length} color={computedColor} />
+        <CompStart cStart={cStart} color={computedColor} />
+        <CardArrow color={computedColor} />
+        <CompEnd cEnd={cEnd} color={computedColor} />
       </g>
     </svg>
   )
