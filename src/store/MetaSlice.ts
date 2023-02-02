@@ -1,5 +1,6 @@
 import { Pause } from "../components/Timer/Pause"
 import { actions } from "./actions"
+import { playClearSound, playTaskDoneSound } from "./useAudio"
 
 const layouts = ["CLASSIC", "MODERN"] as const
 
@@ -8,14 +9,8 @@ export type Layout = typeof layouts[number]
 export interface MetaStore {
   dispatch: (type: string, payload?: Layout) => void
   muted: boolean
-  taskSound: boolean
-  clearSound: boolean
   layout: Layout
 }
-
-//IMPLEMENT
-//We also need to create the store in vanillastore.ts
-//and in store.ts
 
 export const Meta_reducer = (
   state: MetaStore,
@@ -24,14 +19,12 @@ export const Meta_reducer = (
 ): Partial<MetaStore> => {
   switch (type) {
     case actions.meta.playTaskDone: {
-      return {
-        taskSound: !state.taskSound,
-      }
+      if (!state.muted) playTaskDoneSound()
+      return state
     }
     case actions.meta.playClear: {
-      return {
-        clearSound: !state.clearSound,
-      }
+      if (!state.muted) playClearSound()
+      return state
     }
     case actions.meta.toggleMute: {
       return {

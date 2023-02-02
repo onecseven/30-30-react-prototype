@@ -95,16 +95,11 @@ export class TaskList implements TaskList {
   }
 }
 
-export default new TaskList("pollo", [
-  new Task("code", 25),
-  new Task("break", 5),
-  new Task("code", 25),
-  new Task("break", 5),
-  new Task("code", 25),
-  new Task("break", 25),
-])
-
-export const second = new TaskList("pullo", [
-  new Task("smash", 25),
-  new Task("break", 5),
+export default new TaskList("Classic Pomo", [
+  new Task("Focused Work", 25),
+  new Task("Small Break", 5),
+  new Task("Focused Work", 25),
+  new Task("Small Break", 5),
+  new Task("Focused Work", 25),
+  new Task("Long Break", 25),
 ])

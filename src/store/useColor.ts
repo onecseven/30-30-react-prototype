@@ -69,8 +69,8 @@ export const colorStrings = {
 
 export const useColor = (): cssColor => {
   const color = useTaskStor((state) => state.color)
-  const { light, dark, medium } = colorStrings[color]
   useEffect(() => {
+    const { light, dark, medium } = colorStrings[color]
     document.body.style = `background-color: ${light};`
     for (let icon of document.getElementsByClassName("light-stroke")) {
       icon.style = ` stroke: ${light};`

@@ -1,21 +1,11 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App.jsx"
-import data, { second } from "./data"
+import data from "./data"
 import { TimerStore, PickerStor } from "./store/vanillastore"
 
-const render_tasklist = (taskList) => {
-  TimerStore.getState().dispatch("setTaskList", taskList)
-  PickerStor.getState().dispatch("set", [taskList])
-
-  const body = document.getElementsByTagName("BODY")[0]
-  body.id = "root"
-  ReactDOM.render(<App />, body)
-}
-
-
 TimerStore.getState().dispatch("setTaskList", data)
-PickerStor.getState().dispatch("set", [data, second])
+PickerStor.getState().dispatch("set", [data])
 
 const body = document.getElementsByTagName("BODY")[0]
 body.id = "root"
