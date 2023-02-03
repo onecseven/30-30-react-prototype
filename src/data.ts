@@ -41,7 +41,7 @@ let setup_color_generator = () => {
   let current_colors = shuffleArray(colors_default)
   return (): Color => {
     if (!current_colors.length) current_colors = shuffleArray(colors_default)
-    return current_colors.pop()
+    return current_colors.pop()!
   }
 }
 
@@ -86,8 +86,8 @@ export class TaskList implements TaskList {
   id = getUniqueID()
   name: string
   tasks: Task[] = [new StopTask()]
-  private looping = false // ignore StopTask or not
-  private timer: ReturnType<typeof setTimeout> | null = null
+  looping = false // ignore StopTask or not
+  timer: ReturnType<typeof setTimeout> | null = null
 
   constructor(_name: string, _tasks: Task[]) {
     this.name = _name
