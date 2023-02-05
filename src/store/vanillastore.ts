@@ -8,6 +8,7 @@ import { Layout, MetaStore, Meta_reducer } from "./MetaSlice"
 export const TaskStor = create<TaskStore>()((set, get) => ({
   status: "OVER",
   id: "",
+  icon: null,
   color: "gray",
   name: "",
   length: -1,

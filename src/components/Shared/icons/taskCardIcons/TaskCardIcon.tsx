@@ -1,5 +1,11 @@
 import React from 'react'
+import { taskIcon } from '../../../../types'
 import IconList from "./IconRegistry"
+
+interface TaskCardIconProps {
+  color: string
+  type: taskIcon
+}
 
 export const TaskCardIcon = ({color, type}) => {
   return (

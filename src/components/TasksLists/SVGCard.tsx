@@ -1,9 +1,6 @@
 import React from "react"
-import { Color } from "../../data"
 import { Layout } from "../../store/MetaSlice"
-import { colorStrings } from "../../store/useColor"
-import { KeyboardIcon } from "../Shared/icons/taskCardIcons/KeyboardIcon"
-import { MailIcon } from "../Shared/icons/taskCardIcons/MailIcon"
+import { Color, taskIcon } from "../../types"
 import { TaskCardIcon } from "../Shared/icons/taskCardIcons/TaskCardIcon"
 
 type SVGCardProps = {
@@ -13,8 +10,8 @@ type SVGCardProps = {
   cEnd: string
   color: Color | "fill"
   layout: Layout
-  icon?: string
   fill?: string
+  icon: taskIcon | null
 }
 
 export const SVGCard = ({
@@ -24,6 +21,7 @@ export const SVGCard = ({
   cStart,
   color,
   layout,
+  icon
 }: SVGCardProps) => {
   let computedColor = layout === "MODERN" ? "fill" : color
   return (
@@ -41,12 +39,12 @@ export const SVGCard = ({
           strokeWidth="0.265"
           d="M3.532 9.05v19.426c.758 2.18 1.973 4.14 5.496 4.985l121.881-.226c2.946-.65 4.572-2.51 5.205-5.278l.073-19.16c-.494-2.822-2.342-4.415-4.953-5.313L9.051 3.412c-3.263.646-5.148 2.486-5.519 5.638z"
         ></path>
-        <TaskCardIcon type="sleep" color={layout === "MODERN" ? "stroke" : color+"-stroke"}/>
+        <TaskCardIcon type={icon} color={layout === "MODERN" ? "stroke" : color+"-stroke"}/>
         <CardName name={name} color={computedColor} />
         <CardLength length={length} color={computedColor} />
-        <CompStart cStart={cStart} color={computedColor} />
-        <CardArrow color={computedColor} />
-        <CompEnd cEnd={cEnd} color={computedColor} />
+        <CompStart cStart={cStart+" 🡒 "+cEnd} color={computedColor} />
+        {/* <CardArrow color={computedColor} />
+        <CompEnd cEnd={cEnd} color={computedColor} /> */}
       </g>
     </svg>
   )
@@ -55,14 +53,14 @@ export const SVGCard = ({
 const CardName = ({ name = "Name", color }: Partial<SVGCardProps>) => {
   return (
     <text
-      x="28"
+      x="30"
       y="24.881"
       className={`light-${color} fillT`}
       strokeWidth="0.265"
       fontSize="16.933"
       xmlSpace="preserve"
     >
-      <tspan x="28" y="20.881" strokeWidth="0.265" fontSize="16.933">
+      <tspan x="30" y="20.881" strokeWidth="0.265" fontSize="16.933">
         {name}
       </tspan>
     </text>
@@ -91,7 +89,7 @@ const CompStart = ({ cStart = "xx:xx:xx", color }) => (
     strokeWidth="0.265"
     fontSize="7"
   >
-    <tspan x="59.500" y="31.106" strokeWidth="0.265">
+    <tspan x="55.500" y="31.106" strokeWidth="0.265">
       {cStart}
     </tspan>
   </text>

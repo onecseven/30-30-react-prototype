@@ -1,4 +1,5 @@
 import moment from "moment"
+import { taskIcon } from "../types"
 import { actions } from "./actions"
 
 
@@ -80,6 +81,7 @@ export const task_reducer = (
 
 export interface TaskStore {
   status: "TICKING" | "OVER"
+  icon: taskIcon | null 
   computed: [moment.Moment, moment.Moment] | null
   color: string
   id: string
