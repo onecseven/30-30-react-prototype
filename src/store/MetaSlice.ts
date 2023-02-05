@@ -6,10 +6,15 @@ const layouts = ["CLASSIC", "MODERN"] as const
 
 export type Layout = typeof layouts[number]
 
+const view_types = ["TIMER", "PICKER", "SETTINGS", "TASK_EDIT"] as const
+
+export type Views = typeof view_types[number]
+
 export interface MetaStore {
   dispatch: (type: string, payload?: Layout) => void
   muted: boolean
   layout: Layout
+  currentView: Views
 }
 
 export const Meta_reducer = (
