@@ -1,5 +1,23 @@
+import { Color, taskIcon, taskIcons } from "./types"
 
-const colors = [
+let shuffleArray = <T>(arr: T[]): T[] => {
+  let array = arr.slice()
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[array[i], array[j]] = [array[j], array[i]]
+  }
+  return array
+}
+
+let set_up_looping_generator = <T>(arr: T[]) => {
+  let shuffled = shuffleArray(arr)
+  return (): T => {
+    if (!shuffled.length) shuffled = shuffleArray(arr)
+    return shuffled.pop()!
+  }
+}
+
+let get_color = set_up_looping_generator([
   "gray",
   "orange",
   "red",
@@ -11,41 +29,29 @@ const colors = [
   "purple",
   "pink",
   "aqua",
-] as const 
+] as Color[])
 
-export type Color = typeof colors[number]
-
-let shuffleArray = <T>(arr: T[]): T[] => {
-  let array = arr.slice()
-  for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array
-}
-
-let setup_color_generator = () => {
-  const colors_default: Color[] = [
-    "gray",
-    "orange",
-    "red",
-    "green",
-    "blue",
-    "forest",
-    "yellow",
-    "violet",
-    "purple",
-    "pink",
-    "aqua",
-  ]
-  let current_colors = shuffleArray(colors_default)
-  return (): Color => {
-    if (!current_colors.length) current_colors = shuffleArray(colors_default)
-    return current_colors.pop()!
-  }
-}
-
-let get_color = setup_color_generator()
+let get_icon = set_up_looping_generator([
+  "keyboard",
+  "mail",
+  "stonks",
+  "square_pencil",
+  "phone",
+  "hammerwrench",
+  "palette",
+  "camera",
+  "music",
+  "basket",
+  "gas",
+  "piggy",
+  "utensils",
+  "mug",
+  "tv",
+  "film",
+  "book",
+  "paperplane",
+  "sleep",
+] as taskIcon[])
 
 function getUniqueID() {
   function s4() {
@@ -63,6 +69,7 @@ export class StopTask {
   name = "_BREAK"
   length = 0
   remaining_seconds = 0
+  icon = null
 }
 
 export class Task implements Task {
@@ -71,14 +78,15 @@ export class Task implements Task {
   length: number
   remaining_seconds: number
   color: Color
-
-  constructor(_name: string, _length: number) {
+  icon: taskIcon | null
+  constructor(_name: string, _length: number, icon: taskIcon = null) {
     this.color = get_color()
     this.name = _name
     this.length = _length * 60
     this.remaining_seconds = _length * 60
     // this.remaining_seconds = _length //dev
     this.id
+    this.icon = icon ? icon : get_icon()
   }
 }
 
