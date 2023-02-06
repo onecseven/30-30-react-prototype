@@ -1,7 +1,16 @@
+@font-face {
+  font-display: swap;
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/oswald/v49/TK3_WkUHHAIjg75cFRf3bXL8LICs169vsUZiZQ.woff2)
+    format("woff2");
+}
+
 html {
   text-align: left;
-  font-family: "Oswald", sans-serif;
   grid-gap: 0px;
+  font-family: "Oswald";
   overflow-x: hidden;
   min-width: 500px;
   max-width: 500px;
@@ -10,12 +19,16 @@ html {
   transition: fill 0.325s linear; */
 }
 
+html,
+body {
+  margin: 0;
+}
+
 html > * {
   transition: color 0.325s linear;
   transition: stroke 0.325s linear;
   transition: fill 0.325s linear;
   transition: background-color 0.325s linear;
-
   /* transition: background 0.325s linear; */
 }
 
@@ -45,6 +58,29 @@ svg
   100% {
     opacity: 1;
   }
+}
+#root > * {
+  padding-top: 1%;
+}
+
+.colorPicker {
+  height: 400px;
+  width: 480px;
+  margin-left: 25px;
+  margin-top: 25px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 3fr);
+  gap: 10px;
+}
+
+
+.colorSquare {
+  margin: 25px 0 25px 25px;
+  height: 65px;
+  width: 65px;
+  display:grid;
+  border-radius: 15px;
 }
 
 .lineStroke {
@@ -122,8 +158,8 @@ body {
   padding-left: 1%;
   font-size: 3rem;
   margin-right: 1%;
-  padding-top: 1%;
 }
+
 
 .pickerBtn {
   width: 100px;
@@ -203,6 +239,8 @@ body {
 }
 .timerCircle {
   transform: translate(-10%, -15%) scale(0.8);
+  z-index: -1;
+  position: relative;
 }
 
 .innerCircle {
@@ -243,4 +281,12 @@ body {
 
 .icon {
   grid-area: icon;
+}
+
+.modal {
+  background: rgba(0, 0, 0, 0.8);
+  width: 120vw;
+  height: 120vh;
+  z-index: 0;
+  position: absolute;
 }
