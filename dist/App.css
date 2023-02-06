@@ -64,14 +64,26 @@ svg
 }
 
 .colorPicker {
+  z-index: 1;
   height: 400px;
   width: 480px;
   margin-left: 25px;
-  margin-top: 25px;
-  border-radius: 10px;
   display: grid;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   grid-template-columns: repeat(4, 3fr);
   gap: 10px;
+}
+
+.iconPicker {
+  z-index: 1;
+  height: 400px;
+  width: 480px;
+  margin-left: 25px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .numpad {
@@ -79,7 +91,6 @@ svg
   height: 400px;
   width: 480px;
   margin-left: 25px;
-  margin-top: 25px;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -98,6 +109,31 @@ svg
   -moz-transition: 0.2s filter linear;
   transition: 0.2s filter linear;
   user-select: none;
+}
+
+.iconItem {
+  text-align: center;
+  justify-content: center;
+  display: grid;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-transition: 0.2s -webkit-filter linear;
+  -moz-transition: 0.2s -moz-filter linear;
+  -moz-transition: 0.2s filter linear;
+  transition: 0.2s filter linear;
+  user-select: none;
+  transform:translateY(40%);
+}
+
+.iconItem > svg {
+transform: scale(2.5);
+}
+
+.iconItem:hover {
+  filter: brightness(70%)
+}
+
+.selectedIcon {
+  filter: brightness(70%)
 }
 
 .numpadItem:hover {
@@ -214,6 +250,15 @@ body {
   display: flex;
   justify-content: left;
   margin-left: 25px;
+}
+
+
+.bottomBar {
+  display: flex;
+  justify-content: left;
+  margin-top:25px;
+  margin-left:25px;
+  width:480px;
 }
 
 .tName {

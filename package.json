@@ -4,8 +4,8 @@
   "description": "simple react redux boilerplate to get quickly into hacking.",
   "main": "index.js",
   "scripts": {
-    "dev": "node esbuild.config.mjs",
-    "serve": "webpack serve --content-base src/",
+    "dev": "node esbuild.config.mjs ",
+    "serve": "npx serve ./dist/ ",
     "dist": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
     "test": "jest"
   },

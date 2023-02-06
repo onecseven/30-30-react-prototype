@@ -1,4 +1,5 @@
 import React from "react"
+import { useColor } from "../../store/useColor"
 import { Color } from "../../types"
 
 const colors = [
@@ -12,24 +13,28 @@ const colors = [
   "violet",
   "purple",
   "pink",
-  "aqua", 
+  "aqua",
   "gray",
-
 ] as Color[]
 
 export const ModalColor = () => {
-  return (
-    <div  className="medium-background pickerBtn">
-    </div>
-  )
+  return <div className="medium-background pickerBtn"></div>
 }
-
 
 //IMPLEMENT if selected show blue border around them
 export const ModalPicker = () => {
+  useColor()
   return (
-    <div className="colorPicker medium-background">
-      {colors.map(color => (<div className={`colorSquare dark-${color}`}></div>))}
-    </div>
+    <ul id="colorPicker" className="colorPicker medium-background">
+      {colors.map((color) => (
+        <li
+          role="tab"
+          id={`color-${color}`}
+          aria-selected="true"
+          tabIndex={0}
+          className={`colorSquare dark-${color}`}
+        ></li>
+      ))}
+    </ul>
   )
 }
