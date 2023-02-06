@@ -2,6 +2,8 @@ import { BasketIcon } from "./BasketIcon"
 import { BedIcon } from "./BedIcon"
 import { BookIcon } from "./BookIcon"
 import { CameraIcon } from "./CameraIcon"
+import { CheckMarkLucideIcon } from "./CheckMarkLucideIcon"
+import { CloseIcon } from "./CloseIcon"
 import { FilmIcon } from "./FilmIcon"
 import { GasIcon } from "./GasIcon"
 import { KeyboardIcon } from "./KeyboardIcon"
@@ -17,6 +19,7 @@ import { SquarePencilIcon } from "./SquarePencilIcon"
 import { TVIcon } from "./TVIcon"
 import { UtensilIcon } from "./UtensilIcon"
 import { WrenchIcon } from "./WrenchIcon"
+
 export default {
   "keyboard": KeyboardIcon,
   "mail": MailIcon,
@@ -39,4 +42,6 @@ export default {
   "book": BookIcon,
   "paperplane": PaperPlaneIcon,
   "sleep": BedIcon,
+  "checkmark": CheckMarkLucideIcon,
+  "close": CloseIcon
 }
