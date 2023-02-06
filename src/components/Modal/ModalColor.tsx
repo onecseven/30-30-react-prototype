@@ -24,6 +24,8 @@ export const ModalColor = () => {
   )
 }
 
+
+//IMPLEMENT if selected show blue border around them
 export const ModalPicker = () => {
   return (
     <div className="colorPicker medium-background">

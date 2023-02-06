@@ -5,19 +5,22 @@ import IconList from "./IconRegistry"
 interface TaskCardIconProps {
   color: string
   type: taskIcon
+  className?: string
+  x?: string
+  y?: string
 }
 
-export const TaskCardIcon = ({color, type}) => {
+export const TaskCardIcon = ({color, type, className = "", x="8", y="5"}: TaskCardIconProps) => {
   return (
     <svg
     xmlns="http://www.w3.org/2000/svg"
     width="18"
     height="18"
-    x="8"
-    y="5"
+    x={x}
+    y={y}
     viewBox="0 0 24 24"
     fill="none"
-    className={`light-${color}`}
+    className={`light-${color} ${className}`}
     stroke={color}
     stroke-width="2"
     stroke-linecap="round"
