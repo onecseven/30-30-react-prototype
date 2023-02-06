@@ -74,13 +74,78 @@ svg
   gap: 10px;
 }
 
+.numpad {
+  text-align: center;
+  height: 400px;
+  width: 480px;
+  margin-left: 25px;
+  margin-top: 25px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.numpadItem {
+  text-align: center;
+  justify-content: center;
+  display: grid;
+  border-top: 3px solid rgba(0, 0, 0, 0.2);
+  border-right: 3px solid rgba(0, 0, 0, 0.2);
+  padding: 20%;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-transition: 0.2s -webkit-filter linear;
+  -moz-transition: 0.2s -moz-filter linear;
+  -moz-transition: 0.2s filter linear;
+  transition: 0.2s filter linear;
+  user-select: none;
+}
+
+.numpadItem:hover {
+  filter: brightness(85%);
+}
+
+.numpadItem:active {
+  filter: brightness(120%);
+}
+
+.numpadItem:nth-child(1),
+.numpadItem:nth-child(2),
+.numpadItem:nth-child(3) {
+  border-top: none;
+}
+.numpadItem:nth-child(3),
+.numpadItem:nth-child(6),
+.numpadItem:nth-child(12),
+.numpadItem:nth-child(9) {
+  border-right: none;
+}
+
+.numpadItem:nth-child(10) > svg,
+.numpadItem:nth-child(12) > svg {
+  transform: scale(2) translateY(25%);
+}
 
 .colorSquare {
   margin: 25px 0 25px 25px;
   height: 65px;
   width: 65px;
-  display:grid;
+  display: grid;
   border-radius: 15px;
+}
+
+.selected {
+  border: 5px solid blue;
+}
+
+.nameEditField {
+  border: none;
+  appearance: none;
+  height: none;
+  width: 253px;
+  padding-right: 1%;
+  padding-left: 1%;
+  font-size: 3rem;
+  margin-right: 1%;
 }
 
 .lineStroke {
@@ -159,7 +224,6 @@ body {
   font-size: 3rem;
   margin-right: 1%;
 }
-
 
 .pickerBtn {
   width: 100px;
