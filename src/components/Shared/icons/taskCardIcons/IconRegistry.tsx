@@ -1,3 +1,4 @@
+import { BackspaceIcon } from "../BackspaceIcon"
 import { BasketIcon } from "./BasketIcon"
 import { BedIcon } from "./BedIcon"
 import { BookIcon } from "./BookIcon"
@@ -43,5 +44,6 @@ export default {
   "paperplane": PaperPlaneIcon,
   "sleep": BedIcon,
   "checkmark": CheckMarkLucideIcon,
-  "close": CloseIcon
+  "close": CloseIcon,
+  "backspace": BackspaceIcon
 }

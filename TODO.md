@@ -9,20 +9,17 @@ TODO Editing Tasks in a Modal
     [x] TODO Choosing Color View
       [ ] IMPLEMENT Functionality
 
-    [ ] TODO Editing Name View
+    [x] TODO Editing Name View
       Maybe a light-gray/medium gray light band that goes across the screen
       [ ] IMPLEMENT Functionality
-    [ ] TODO Editing length View
+    [x] TODO Editing length View
       [ ] IMPLEMENT Functionality
-    [ ] TODO Editing Icon View
+    [x] TODO Editing Icon View
       Need to an "Icon Select" button on the tName on ModalName
       [ ] IMPLEMENT Functionality
-    
     [ ] TODO Deleting
       [ ] IMPLEMENT Functionality
-
     [ ] Compare App.css with styles.css
-    
 [ ] TODO Gesture recognition
 [ ] {future} Swap to Svelte?
 [ ] React-Native

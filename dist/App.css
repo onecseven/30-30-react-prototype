@@ -121,19 +121,19 @@ svg
   -moz-transition: 0.2s filter linear;
   transition: 0.2s filter linear;
   user-select: none;
-  transform:translateY(40%);
+  transform: translateY(30%);
 }
 
 .iconItem > svg {
-transform: scale(2.5);
+  transform: scale(2.5);
 }
 
 .iconItem:hover {
-  filter: brightness(70%)
+  filter: brightness(70%);
 }
 
 .selectedIcon {
-  filter: brightness(70%)
+  filter: brightness(70%);
 }
 
 .numpadItem:hover {
@@ -167,6 +167,7 @@ transform: scale(2.5);
   width: 65px;
   display: grid;
   border-radius: 15px;
+  transition: all 0.325s linear;
 }
 
 .selected {
@@ -252,13 +253,12 @@ body {
   margin-left: 25px;
 }
 
-
 .bottomBar {
   display: flex;
   justify-content: left;
-  margin-top:25px;
-  margin-left:25px;
-  width:480px;
+  margin-top: 25px;
+  margin-left: 25px;
+  width: 480px;
 }
 
 .tName {
@@ -398,4 +398,21 @@ body {
   height: 120vh;
   z-index: 0;
   position: absolute;
+}
+
+.background-darken {
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-transition: 0.2s -webkit-filter linear;
+  -moz-transition: 0.2s -moz-filter linear;
+  -moz-transition: 0.2s filter linear;
+  transition: 0.2s filter linear;
+  transition: 0.2s all linear;
+}
+.background-darken:hover {
+  filter: brightness(120%);
+  box-shadow: -2px 2px 2px black;
+}
+.background-darken:focus {
+  filter: brightness(120%);
+  box-shadow: -2px 2px 2px black;
 }
