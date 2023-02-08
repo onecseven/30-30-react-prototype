@@ -1,10 +1,11 @@
-import React, { useState, useCallback, useEffect } from "react"
+import React from "react"
 import { ModalView } from "./components/Modal/ModalView"
 import { Picker } from "./components/Picker/Picker"
 import { Settings } from "./components/Settings/Settings"
 
 import { TimerView } from "./components/TimerView"
 import { TopBar } from "./components/TopBar"
+import { useSettingsStore } from "./store/store"
 import { useColor } from "./store/useColor"
 import { useTitle } from "./store/useTitle"
 
@@ -15,12 +16,10 @@ export type Views = typeof view_types[number]
 export const App = () => {
   useColor()
   useTitle()
-
-  const [currentView, setCurrentView] = useState<Views>("TIMER")
+  const [dispatch, currentView] = useSettingsStore(state => [state.dispatch, state.currentView])
 
   const setView = (view: Views) => () => {
-    if (currentView === view) setCurrentView("TIMER")
-    else setCurrentView(view)
+    dispatch("setView", view)
   }
 
   return (

@@ -350,8 +350,8 @@ body {
 }
 .timerCircle {
   transform: translate(-10%, -15%) scale(0.8);
-  z-index: -1;
-  position: relative;
+  /* z-index: -1;
+  position: relative; */
 }
 
 .innerCircle {
