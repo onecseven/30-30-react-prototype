@@ -6,28 +6,21 @@ const layouts = ["CLASSIC", "MODERN"] as const
 
 export type Layout = typeof layouts[number]
 
-const isLayout = (str: any | Layout): str is Layout =>
-  str === "CLASSIC" || str === "MODERN"
-
 const view_types = ["TIMER", "PICKER", "SETTINGS", "TASK_EDIT"] as const
-
-const isView = (str: any | Views): str is Views =>
-  ["TIMER", "PICKER", "SETTINGS", "TASK_EDIT"].includes(str)
 
 export type Views = typeof view_types[number]
 
 export interface MetaStore {
-  dispatch: (type: string, payload?: Layout | Views | number) => void
+  dispatch: (type: string, payload?: Layout) => void
   muted: boolean
   layout: Layout
   currentView: Views
-  editingTaskAtIndex: number | null
 }
 
 export const Meta_reducer = (
   state: MetaStore,
   type: string,
-  payload?: Layout | Views | number
+  payload?: Layout
 ): Partial<MetaStore> => {
   switch (type) {
     case actions.meta.playTaskDone: {
@@ -44,23 +37,9 @@ export const Meta_reducer = (
       }
     }
     case actions.meta.setLayout: {
-      if (!isLayout(payload)) return state
+      if (!layouts.includes(payload)) return state
       return {
         layout: payload,
-      }
-    }
-    case actions.meta.editTask: {
-      if (payload !== null && typeof payload !== "number") return state
-      else if (payload === null) return {editingTaskAtIndex: null}
-      return {
-        editingTaskAtIndex: payload as number,
-      }
-    }
-    case actions.meta.setView: {
-      if (!isView(payload)) return state
-      else if (payload === state.currentView) return {currentView: "TIMER"}
-      return {
-        currentView: payload,
       }
     }
     default:

@@ -4,6 +4,7 @@ import { TimerBtn } from "./TimerButtons"
 import { SendToBottomIcon } from "../Shared/icons/SendToBottomIcon"
 import { BtnLabel } from "./BtnLabel"
 
+
 let labelMaker = (seconds: number) => {
   let min = 1
   if (seconds > 7200) min = 30
@@ -23,6 +24,7 @@ export const TatiTimerButtons = () => {
 
   return (
     <>
+
       {/* <TimerBtn pos="topLeft" cb={add}>
         <BtnLabel x="122" y="155" label={`-${label}m`}/>
       </TimerBtn>
@@ -37,28 +39,22 @@ export const TatiTimerButtons = () => {
       <TimerBtn pos="bottomRight" cb={take}>
         <BtnLabel label={`+${label}m`} x="525" y="416" />
       </TimerBtn> */}
-
-
+ 
       <TimerBtn pos="midLeft" cb={add}>
+        <BtnLabel x="48" y="262" label={`-${label}m`}/>
+      </TimerBtn>
+
+      <TimerBtn pos="midRight" cb={take}>
         <BtnLabel label={`+${label}m`} x="522" y="262" />
       </TimerBtn>
-      <TimerBtn pos="midRight" cb={take}>
-        <BtnLabel x="48" y="262" label={`-${label}m`} />
-      </TimerBtn>
-
-      
-      {/* <TimerBtn pos="bottomRight" cb={add}>
-        <BtnLabel label={`+${label}m`} x="525" y="420" />
-      </TimerBtn>
-      <TimerBtn pos="bottomLeft" cb={take}>
-        <BtnLabel x="50" y="420" label={`-${label}m`} />
-      </TimerBtn> */}
+ 
       <TimerBtn pos="bottom" cb={send_to_bottom}>
         <SendToBottomIcon x="284" y="534" />
       </TimerBtn>
       {/* <TimerBtn pos="top" cb={send_to_bottom}>
         <SendToBottomIcon x="284" y="34" />
       </TimerBtn> */}
+
     </>
   )
 }

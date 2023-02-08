@@ -4,6 +4,7 @@ import App from "./App.jsx"
 import data from "./data"
 import { TimerStore, PickerStor } from "./store/vanillastore"
 
+
 TimerStore.getState().dispatch("setTaskList", data)
 PickerStor.getState().dispatch("set", [data])
 

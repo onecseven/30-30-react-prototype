@@ -24,8 +24,6 @@ export const actions = {
     playTaskDone: "playTaskDone",
     playClear: "playClear",
     toggleMute: "toggleMute",
-    setLayout: "setLayout",
-    setView: "setView",
-    editTask: "editTask",
+    setLayout: "setLayout"
   }
 }
