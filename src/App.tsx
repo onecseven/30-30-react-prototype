@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react"
+import { ModalView } from "./components/Modal/ModalView"
 import { Picker } from "./components/Picker/Picker"
 import { Settings } from "./components/Settings/Settings"
 
@@ -7,7 +8,7 @@ import { TopBar } from "./components/TopBar"
 import { useColor } from "./store/useColor"
 import { useTitle } from "./store/useTitle"
 
-const view_types = ["TIMER", "PICKER", "SETTINGS"] as const
+const view_types = ["TIMER", "PICKER", "SETTINGS", "TASK_EDIT"] as const
 
 export type Views = typeof view_types[number]
 
@@ -23,8 +24,9 @@ export const App = () => {
   }
 
   return (
-    <div className="App">
-      <TopBar swap={setView} />
+    <div className="App" id="App">
+      {currentView !== "TASK_EDIT" && <TopBar swap={setView} />}
+      {currentView === "TASK_EDIT" && <ModalView />}
       {currentView === "TIMER" && <TimerView />}
       {currentView === "PICKER" && <Picker swap={setView("TIMER")} />}
       {currentView === "SETTINGS" && <Settings swap={setView("SETTINGS")} />}

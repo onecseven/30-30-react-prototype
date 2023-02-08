@@ -21,7 +21,8 @@ export const ModalColor = () => {
   return <div className="medium-background pickerBtn"></div>
 }
 
-//IMPLEMENT if selected show blue border around them
+//TODO show current color
+
 export const ModalPicker = () => {
   useColor()
   return (
@@ -32,7 +33,7 @@ export const ModalPicker = () => {
           id={`color-${color}`}
           aria-selected="true"
           tabIndex={0}
-          className={`colorSquare dark-${color}`}
+          className={`colorSquare dark-${color} background-darken`}
         ></li>
       ))}
     </ul>

@@ -2,6 +2,8 @@ import React from "react"
 import { GearIcon } from "../Shared/icons/GearIcon"
 import { TaskCardIcon } from "../Shared/icons/taskCardIcons/TaskCardIcon"
 
+//TODO show time 
+
 export const ModalTime = () => (
   <div className="medium-background settingsBtn">
     <GearIcon x="0" y="0" />
@@ -29,11 +31,11 @@ const labels = [
   8,
   9,
   <div className="medium-background numpadItem">
-    <TaskCardIcon color="stroke" type="close" />
   </div>,
   0,
   <div className="medium-background numpadItem">
-    <TaskCardIcon type="checkmark" color="stroke" />
+    {/* <TaskCardIcon type="checkmark" color="stroke" /> */}
+    <TaskCardIcon color="stroke" type="backspace" />
   </div>,
 ].map((item) => {
   if (typeof item === "number") return NumPadBtn(item)
