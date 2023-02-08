@@ -32,6 +32,7 @@ html > * {
   /* transition: background 0.325s linear; */
 }
 
+
 svg
   .light-stroke
   .light-fill
@@ -59,9 +60,7 @@ svg
     opacity: 1;
   }
 }
-#root > * {
-  padding-top: 1%;
-}
+
 
 .colorPicker {
   z-index: 1;
@@ -183,6 +182,7 @@ svg
   padding-left: 1%;
   font-size: 3rem;
   margin-right: 1%;
+  transition: background-color 0.325s linear;
 }
 
 .lineStroke {
@@ -251,6 +251,7 @@ body {
   display: flex;
   justify-content: left;
   margin-left: 25px;
+  padding-top: 1%;
 }
 
 .bottomBar {
@@ -263,7 +264,7 @@ body {
 
 .tName {
   height: 80px;
-  width: 253px;
+  width: 262px;
   padding-right: 1%;
   padding-left: 1%;
   font-size: 3rem;
@@ -280,6 +281,13 @@ body {
 }
 
 .settingsBtn {
+  background-color: transparent;
+  transition: background-color 0.325s linear;
+  height: 80px;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.timeBtn {
   width: 80;
   background-color: transparent;
   transition: background-color 0.325s linear;
@@ -367,7 +375,20 @@ body {
 
 .svgTaskCard {
   margin-right: 0.5%;
+}
 
+.innerTask {
+  -webkit-transition: 0.2s -webkit-filter linear;
+  -moz-transition: 0.2s -moz-filter linear;
+  -moz-transition: 0.2s filter linear;
+  transition: 0.2s filter linear;
+}
+
+.innerTask:hover {
+  filter: brightness(80%) drop-shadow(0.5px 1px rgba(0, 0, 0, 0.2));
+}
+.innerTask:active {
+  filter: brightness(110%) ;
 }
 
 .taskList {
