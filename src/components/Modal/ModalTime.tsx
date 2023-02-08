@@ -1,14 +1,18 @@
 import React from "react"
+import { useEditingTask } from "../../store/useEditingTask"
 import { GearIcon } from "../Shared/icons/GearIcon"
 import { TaskCardIcon } from "../Shared/icons/taskCardIcons/TaskCardIcon"
 
-//TODO show time 
-
-export const ModalTime = () => (
-  <div className="medium-background settingsBtn">
+//TODO show time, make it a stack?
+// gotta convert currentLenght to mm:ss
+export const ModalTime = () => {
+  let [{length: currentLength}, change ] = useEditingTask()
+  console.log(currentLength) 
+  return (
+  <div className="medium-background timeBtn">
     <GearIcon x="0" y="0" />
   </div>
-)
+)}
 
 const NumPadBtn = (label) => (
   <li
@@ -43,5 +47,5 @@ const labels = [
 })
 
 export const ModalTimePicker = () => {
-  return <ul className="numpad">{labels}</ul>
+  return <ul className="numpad fadeIn">{labels}</ul>
 }
