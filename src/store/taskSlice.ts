@@ -1,5 +1,5 @@
 import moment from "moment"
-import { taskIcon } from "../types"
+import { Color, taskIcon } from "../types"
 import { actions } from "./actions"
 
 
@@ -83,7 +83,7 @@ export interface TaskStore {
   status: "TICKING" | "OVER"
   icon: taskIcon | null 
   computed: [moment.Moment, moment.Moment] | null
-  color: string
+  color: Color
   id: string
   name: string
   length: number

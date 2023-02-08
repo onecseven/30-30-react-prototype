@@ -1,6 +1,14 @@
 import { TaskStore } from "./taskSlice"
 import { actions } from "./actions"
 import { SettingsStore } from "./vanillastore"
+
+export interface TaskChange {
+  id: string
+  changes: Partial<TaskStore>
+}
+
+const isTaskChange = (obj: any | TaskChange): obj is TaskChange => (obj.hasOwnProperty("id") && obj.hasOwnProperty("changes"))
+
 export interface TaskListStore {
   status: "IDLE" | "TIMER_ACTIVE"
   name: string
@@ -8,7 +16,7 @@ export interface TaskListStore {
   looping: boolean
   timer: ReturnType<typeof setTimeout> | null
   getState(): TaskStore
-  dispatch: (type: string, payload: TaskListStore | string) => void
+  dispatch: (type: string, payload: TaskListStore | string | TaskChange) => void
 }
 
 let compute_times = (state: TaskListStore): TaskListStore["tasks"] => {
@@ -116,6 +124,21 @@ export const tasklist_reducer = (
       if (!payload || typeof payload === "string") return state
       state.getState().dispatch("setTask", payload.tasks[0])
       return { ...state, status: "IDLE", ...payload }
+    }
+    case actions.taskList.editTask: {
+      if (!isTaskChange(payload)) return state
+      let index = state.tasks.findIndex(task => task.id === payload.id)
+      let task = state.tasks.slice()[index]
+      let newTask = {
+        ...task,
+        ...payload.changes
+      }
+      let newTasks = state.tasks.slice()
+      newTasks[index] = newTask
+      if (index === 0) state.getState().dispatch("setTask", payload.changes)
+      return {
+        tasks: newTasks
+      }
     }
     case actions.taskList.endTasklist: {
       if (state.timer) clearInterval(state.timer)

@@ -41,7 +41,7 @@ export const SettingsStore = create<MetaStore>()((set) => ({
   muted: false,
   layout: "CLASSIC",
   currentView: "TIMER",
-  editingTaskAtIndex: null,
-  dispatch: (type: "string", data?: Layout | Views | number) =>
+  editingTaskID: null,
+  dispatch: (type: string, data?: Layout | Views | string) =>
     set((state) => Meta_reducer(state, type, data)),
 }))

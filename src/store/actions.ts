@@ -7,6 +7,7 @@ export const actions = {
     stop: "stop",
     start: "start",
     delete: "delete",
+    editTask: "editTask"
   },
   task: {
     tick: "tick",
@@ -26,6 +27,6 @@ export const actions = {
     toggleMute: "toggleMute",
     setLayout: "setLayout",
     setView: "setView",
-    editTask: "editTask",
+    setEditTask: "setEditTask",
   }
 }

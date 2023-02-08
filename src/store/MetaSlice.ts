@@ -1,4 +1,3 @@
-import { Pause } from "../components/Timer/Pause"
 import { actions } from "./actions"
 import { playClearSound, playTaskDoneSound } from "./useAudio"
 
@@ -17,17 +16,17 @@ const isView = (str: any | Views): str is Views =>
 export type Views = typeof view_types[number]
 
 export interface MetaStore {
-  dispatch: (type: string, payload?: Layout | Views | number) => void
+  dispatch: (type: string, payload?: Layout | Views | string) => void
   muted: boolean
   layout: Layout
   currentView: Views
-  editingTaskAtIndex: number | null
+  editingTaskID: (null | string)
 }
 
 export const Meta_reducer = (
   state: MetaStore,
   type: string,
-  payload?: Layout | Views | number
+  payload?: Layout | Views | string
 ): Partial<MetaStore> => {
   switch (type) {
     case actions.meta.playTaskDone: {
@@ -49,11 +48,12 @@ export const Meta_reducer = (
         layout: payload,
       }
     }
-    case actions.meta.editTask: {
-      if (payload !== null && typeof payload !== "number") return state
-      else if (payload === null) return {editingTaskAtIndex: null}
+    case actions.meta.setEditTask: {
+      if (payload !== null && typeof payload !== "string") return state
+      else if (payload === null) return {editingTaskID: null}
       return {
-        editingTaskAtIndex: payload as number,
+        currentView: "TASK_EDIT",
+        editingTaskID: payload,
       }
     }
     case actions.meta.setView: {
