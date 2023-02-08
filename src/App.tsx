@@ -24,8 +24,8 @@ export const App = () => {
 
   return (
     <div className="App" id="App">
+      {currentView === "TASK_EDIT" && <ModalView swap={setView("TIMER")} />}
       {currentView !== "TASK_EDIT" && <TopBar swap={setView} />}
-      {currentView === "TASK_EDIT" && <ModalView />}
       {currentView === "TIMER" && <TimerView />}
       {currentView === "PICKER" && <Picker swap={setView("TIMER")} />}
       {currentView === "SETTINGS" && <Settings swap={setView("SETTINGS")} />}
