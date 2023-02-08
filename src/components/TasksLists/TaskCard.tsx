@@ -11,8 +11,8 @@ interface taskCardProps {
 }
 
 export const TaskCard = ({ task }: taskCardProps) => {
-  let { name, remaining_seconds, computed, color, icon} = task
-  let layout = useSettingsStore((state) => state.layout)
+  let { name, remaining_seconds, computed, color, icon, id} = task
+  let [layout, dispatch] = useSettingsStore((state) => [state.layout, state.dispatch])
 
   if (name === "_BREAK") return <LineIcon x="0" y="0" />
   if (!computed)
@@ -23,7 +23,7 @@ export const TaskCard = ({ task }: taskCardProps) => {
 
   let [cStart, cEnd] = computed
   let cLen = seconds_to_mmss(remaining_seconds)
-
+  let edit = () => dispatch("setEditTask", id)
   return (
     <SVGCard
       name={name}
@@ -33,6 +33,7 @@ export const TaskCard = ({ task }: taskCardProps) => {
       color={color as Color}
       layout={layout}
       icon={icon}
+      edit={edit}
     />
   ) 
 }
