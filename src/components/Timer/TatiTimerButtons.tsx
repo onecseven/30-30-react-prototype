@@ -40,10 +40,10 @@ export const TatiTimerButtons = () => {
 
 
       <TimerBtn pos="midLeft" cb={add}>
-        <BtnLabel label={`+${label}m`} x="522" y="262" />
+        <BtnLabel label={`+${label}m`} x={ "522"} y="262" size={label > 5 ? "40px" : "48px"} />
       </TimerBtn>
       <TimerBtn pos="midRight" cb={take}>
-        <BtnLabel x="48" y="262" label={`-${label}m`} />
+        <BtnLabel x={"48"} y="262" label={`-${label}m`} size={label > 5 ? "40px" : "48px"} />
       </TimerBtn>
 
       

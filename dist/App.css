@@ -288,11 +288,20 @@ body {
 }
 
 .timeBtn {
-  width: 80;
+  width: 90px;
   background-color: transparent;
   transition: background-color 0.325s linear;
   height: 80px;
   border-radius: 0 0 1rem 1rem;
+  text-align: center;
+}
+
+.minutes {
+  font-size: 42px;
+}
+
+.hours{
+  font-size: 36px;
 }
 
 .pickerView {
@@ -367,10 +376,19 @@ body {
   transition: all 0.325s linear;
 }
 
-.timerText {
+.minuteTimerText {
   font-size: 125px;
   word-spacing: 0%;
   kerning: -2cm;
+  user-select: none;
+
+}
+.hourTimerText {
+  font-size: 95px;
+  word-spacing: 0%;
+  kerning: -2cm;
+  user-select: none;
+
 }
 
 .svgTaskCard {

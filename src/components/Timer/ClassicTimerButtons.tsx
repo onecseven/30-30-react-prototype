@@ -50,10 +50,10 @@ export const ClassicTimerButtons = () => {
       </TimerBtn>
 
       <TimerBtn pos="bottomRight" cb={add}>
-        <BtnLabel label={`+${label}m`} x="525" y="420" />
+        <BtnLabel label={`+${label}m`} x={label > 5 ? "522.5" : "525"} y={label > 5 ? "415" : "420"} size={label > 5 ? "40px" : "48px"}/>
       </TimerBtn>
       <TimerBtn pos="bottomLeft" cb={take}>
-        <BtnLabel x="50" y="420" label={`-${label}m`} />
+        <BtnLabel x={label > 5 ? "45" : "50"} y={label > 5 ? "415" : "420"} label={`-${label}m`} size={label > 5 ? "40px" : "48px"} />
       </TimerBtn>
 
     </>

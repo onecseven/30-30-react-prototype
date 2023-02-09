@@ -1,18 +1,20 @@
 import React from "react"
 import { useTaskStor } from "../../store/store"
-import { seconds_to_mmss } from "../Shared/seconds_to_mmss"
+import { formatSeconds, seconds_to_mmss } from "../Shared/seconds_to_mmss"
 
 export const TimerText = ({ rem = "00:00" }) => {
   let { remaining_seconds } = useTaskStor((state) => state)
-  let cLen = seconds_to_mmss(remaining_seconds)
+  let isHour = remaining_seconds > 3600
+  let cLen = formatSeconds(remaining_seconds)
 
   return (
-  <text
-    letterSpacing="-10"
-    x="210"
-    y="455"
-    className="timerText dark-fill fillT"
-  >
-    {cLen || rem}
-  </text>
-)}
+    <text
+      letterSpacing="-10"
+      x="210"
+      y={isHour ? "425" : "455"}
+      className={`${isHour ? "hourTimerText" : "minuteTimerText"} dark-fill fillT"`}
+    >
+      {cLen || rem}
+    </text>
+  )
+}

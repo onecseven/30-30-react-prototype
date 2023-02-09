@@ -4,7 +4,7 @@ import { useSettingsStore } from "../../store/store"
 import { TaskStore } from "../../store/taskSlice"
 import { Color } from "../../types"
 import { LineIcon } from "../Shared/icons/LineIcon"
-import { seconds_to_mmss } from "../Shared/seconds_to_mmss"
+import { formatSeconds, seconds_to_mmss } from "../Shared/seconds_to_mmss"
 import { SVGCard } from "./SVGCard"
 interface taskCardProps {
   task: Partial<TaskStore>
@@ -22,7 +22,7 @@ export const TaskCard = ({ task }: taskCardProps) => {
     ]
 
   let [cStart, cEnd] = computed
-  let cLen = seconds_to_mmss(remaining_seconds)
+  let cLen = formatSeconds(remaining_seconds)
   let edit = () => dispatch("setEditTask", id)
   return (
     <SVGCard
