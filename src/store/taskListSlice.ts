@@ -160,6 +160,15 @@ export const tasklist_reducer = (
         status: "IDLE",
       }
     }
+    case actions.taskList.add: {
+      if (!isTaskChange(payload)) return state
+      let break_index = state.tasks.findIndex(task => task.name === "_BREAK")
+      let newtasks = state.tasks.slice()
+      newtasks.splice(break_index, 0, payload.changes as TaskStore)
+      return {
+        tasks: newtasks
+      }
+    }
     default:
       return state
   }

@@ -7,7 +7,8 @@ export const actions = {
     stop: "stop",
     start: "start",
     delete: "delete",
-    editTask: "editTask"
+    editTask: "editTask",
+    add: "addTask"
   },
   task: {
     tick: "tick",

@@ -111,3 +111,5 @@ export default new TaskList("Classic Pomo", [
   new Task("Focused Work", 25),
   new Task("Long Break", 25),
 ])
+
+export const createDefaultTask = () => new Task("New Task", 5)
