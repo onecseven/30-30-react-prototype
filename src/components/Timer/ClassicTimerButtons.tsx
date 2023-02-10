@@ -46,7 +46,7 @@ export const ClassicTimerButtons = () => {
         <TrashIcon x="458" y="103"  />
       </TimerBtn>}
       <TimerBtn pos="bottom" cb={toggleLock}>
-        {isLocked ? <LockIcon x="290" y="527"/>   : <OpenLockIcon x="286" y="537" />}
+        {isLocked ? <LockIcon x="290" y="537" height="70"/>   : <OpenLockIcon x="295" y="537" height="70"/>}
       </TimerBtn>
 
       <TimerBtn pos="bottomRight" cb={add}>

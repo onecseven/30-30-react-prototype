@@ -8,6 +8,7 @@ export interface IconProps {
   width?: string
   height?: string
   viewbox?: string
+  hue?: "medium" | "light" | "dark"
 }
 
 const formatStringToCamelCase = (str) => {

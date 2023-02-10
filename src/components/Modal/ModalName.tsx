@@ -11,7 +11,7 @@ export const ModalName = () => {
       type="text"
       defaultValue={current.name}
       onChange={handleChange}
-      className="medium-background nameEditField"
+      className="medium-background nameEditField fadeIn"
     ></input>
   )
 }
