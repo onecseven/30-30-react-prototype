@@ -1,6 +1,8 @@
 import React from "react";
 import { CheckMarkIcon } from "../Shared/icons/CheckMarkIcon";
+import { ReplySolidIcon } from "../Shared/icons/ReplySolidIcon";
 import { TrashIcon } from "../Shared/icons/TrashIcon";
+import { BtnLabel } from "../Timer/BtnLabel";
 
 interface BottomBarProps {
   swap: () => void
@@ -30,7 +32,8 @@ export const BottomBar = ({swap}: BottomBarProps) => {
         tabIndex={0}
         onClick={swap}
       >
-        <CheckMarkIcon x={"0"} y={"0"} height="35" />
+        <ReplySolidIcon x="0" y="0" height="35"/>
+        {/* <CheckMarkIcon x={"0"} y={"0"} height="35" /> */}
       </label>
     </li>
   </div>;
