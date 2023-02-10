@@ -54,7 +54,7 @@ const start_timer = (state): Partial<TaskListStore> => {
 export const tasklist_reducer = (
   state: TaskListStore,
   type: string,
-  payload: TaskListStore | "preserve"
+  payload: TaskListStore | "preserve" | TaskChange
 ): Partial<TaskListStore> => {
   // console.log(type)
   switch (type) {
@@ -118,10 +118,9 @@ export const tasklist_reducer = (
         tasks: tasks.map((task) => ({ ...task, computed: null })),
       }
     }
-
     case actions.taskList.setTaskList: {
       if (state.timer) clearInterval(state.timer)
-      if (!payload || typeof payload === "string") return state
+      if (!payload || typeof payload === "string" || isTaskChange(payload)) return state
       state.getState().dispatch("setTask", payload.tasks[0])
       return { ...state, status: "IDLE", ...payload }
     }
@@ -148,10 +147,13 @@ export const tasklist_reducer = (
     }
     case actions.taskList.delete: {
       if (state.tasks.length < 3) return state
+      if (!isTaskChange(payload)) return state
       if (state.timer) clearInterval(state.timer)
-      let tasks = state.tasks.slice(1)
       let taskDispatch = state.getState().dispatch
-      taskDispatch(actions.task.setTask, { ...tasks[0] })
+      let index = state.tasks.findIndex(task => task.id === payload.id)
+      let tasks = state.tasks.slice()
+      tasks.splice(index, 1)
+      if (index === 0) taskDispatch(actions.task.setTask, { ...tasks[0] })
       return {
         timer: null,
         tasks: tasks.map((task) => ({ ...task, computed: null })),

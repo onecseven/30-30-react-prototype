@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 import { useTimerStore, useSettingsStore } from "./store"
-import { TaskChange } from "./taskListSlice"
+import { TaskChange, TaskListStore } from "./taskListSlice"
 import { TaskStore } from "./taskSlice"
 
-export const useEditingTask = (): [TaskStore, (change: TaskChange["changes"]) => void] => {
+export const useEditingTask = (): [TaskStore, (change: TaskChange["changes"]) => void, TaskListStore["dispatch"]] => {
   let [tasks, dispatch] = useTimerStore((state) => [
     state.tasks,
     state.dispatch,
@@ -17,6 +17,6 @@ export const useEditingTask = (): [TaskStore, (change: TaskChange["changes"]) =>
         id: taskID,
         changes: change,
       })
-    return [currentTask, sendPartialChange]
-  } else return [null, (change: TaskChange["changes"]) => console.error("No task selected. This shouldn't happen.")]
+    return [currentTask, sendPartialChange, dispatch]
+  } else return [null, (change: TaskChange["changes"]) => console.error("No task selected. This shouldn't happen."), dispatch]
 }

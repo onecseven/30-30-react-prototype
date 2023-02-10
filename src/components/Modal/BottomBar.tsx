@@ -1,4 +1,5 @@
 import React from "react";
+import { useEditingTask } from "../../store/useEditingTask";
 import { CheckMarkIcon } from "../Shared/icons/CheckMarkIcon";
 import { ReplySolidIcon } from "../Shared/icons/ReplySolidIcon";
 import { TrashIcon } from "../Shared/icons/TrashIcon";
@@ -9,6 +10,7 @@ interface BottomBarProps {
 }
 //TODO TrashIcon functionality? A different CheckMark icon? idk
 export const BottomBar = ({swap}: BottomBarProps) => {
+  const [{id}, , dispatch] = useEditingTask()
   return <div className="bottomBar">
     <li className="tab-li " style={{ marginRight: "2%" }}>
       <label
@@ -18,6 +20,7 @@ export const BottomBar = ({swap}: BottomBarProps) => {
         aria-selected="true"
         aria-controls={"icon-panel"}
         tabIndex={0}
+        onClick={() => (swap(), dispatch("delete", {id, changes: null}))}
       >
         <TrashIcon width="40" height="35" x="0" y="0" />
       </label>

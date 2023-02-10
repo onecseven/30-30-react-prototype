@@ -22,11 +22,11 @@ let labelMaker = (seconds: number) => {
 export const ClassicTimerButtons = () => {
   const [isLocked, setIsLocked] = useState(false)
   let { dispatch } = useTimerStore((state) => state)
-  let taskDispatch = useTaskStor((state) => state.dispatch)
+  let [taskDispatch, id] = useTaskStor((state) => [state.dispatch, state.id])
   let remaining = useTaskStor((state) => state.remaining_seconds)
   let play = () => dispatch("start", null)
   let stop = () => dispatch("stop", null)
-  let del = () => dispatch("delete", null)
+  let del = () => dispatch("delete", {id, changes: null})
   let send_to_bottom = () => dispatch("sendBottom", "preserve")
   let done = () => dispatch("sendBottom", null)
   let add = () => taskDispatch("add", null)
