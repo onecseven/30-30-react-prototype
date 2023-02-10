@@ -104,7 +104,7 @@ export class TaskList implements TaskList {
 }
 
 export default new TaskList("Classic Pomo", [
-  new Task("Focused Work", 25),
+  new Task("Focused Work", 70),
   new Task("Small Break", 5),
   new Task("Focused Work", 25),
   new Task("Small Break", 5),
