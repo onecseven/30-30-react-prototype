@@ -20,7 +20,7 @@ TODO Editing Tasks in a Modal
     [x] TODO Deleting
       [x] IMPLEMENT Functionality
     [ ] Compare App.css with styles.css
-    [ ] New Task Button
+    [x] New Task Button
     [ ] Up/Down Buttons on hover next to svg task card?
 
 
