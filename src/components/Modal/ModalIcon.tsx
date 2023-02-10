@@ -7,7 +7,7 @@ import { TaskCardIcon } from "../Shared/icons/taskCardIcons/TaskCardIcon"
 import { onEnter } from "../Shared/onEnter"
 
 const keys = Object.keys(IconRegistry).filter(
-  (item) => item !== "close" && item !== "backspace"
+  (item) => item !== "close" && item !== "backspace" && item !== "add"
 )
 
 const ModalIconItem = ({ children, icon, change, selected}) => (

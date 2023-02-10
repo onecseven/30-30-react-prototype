@@ -419,12 +419,27 @@ body {
 .svgTaskCard {
   margin-right: 0.5%;
 }
+.addTaskCard {
+  margin-right: 0.5%;
+}
 
 .innerTask {
   -webkit-transition: 0.2s -webkit-filter linear;
   -moz-transition: 0.2s -moz-filter linear;
   -moz-transition: 0.2s filter linear;
   transition: 0.2s filter linear;
+}
+
+.innerAdd {
+  -webkit-transition: 0.2s -webkit-filter linear;
+  -moz-transition: 0.2s -moz-filter linear;
+  -moz-transition: 0.2s filter linear;
+  transition: 0.2s filter linear;
+  opacity: 70%;
+}
+.innerAdd:hover {
+    filter: brightness(80%);
+
 }
 
 .innerTask:hover {

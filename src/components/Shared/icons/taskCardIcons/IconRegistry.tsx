@@ -1,4 +1,5 @@
 import { BackspaceIcon } from "../BackspaceIcon"
+import { AddIcon } from "./AddIcon"
 import { BasketIcon } from "./BasketIcon"
 import { BedIcon } from "./BedIcon"
 import { BookIcon } from "./BookIcon"
@@ -22,6 +23,7 @@ import { UtensilIcon } from "./UtensilIcon"
 import { WrenchIcon } from "./WrenchIcon"
 
 export default {
+  "add": AddIcon,
   "keyboard": KeyboardIcon,
   "mail": MailIcon,
   "stonks": LineChartIcon,

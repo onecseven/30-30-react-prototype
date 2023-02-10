@@ -1,5 +1,6 @@
 import React from "react"
 import { useTimerStore } from "../../store/store"
+import { AddTaskCard } from "./AddTaskCard"
 import { CurrentTask } from "./CurrentTask"
 import { TaskCard } from "./TaskCard"
 
@@ -28,6 +29,7 @@ export const TaskList = () => {
             </>
           )
         })}
+        <AddTaskCard/>
       </>
     </div>
   )
