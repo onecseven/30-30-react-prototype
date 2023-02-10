@@ -1,28 +1,45 @@
 import React from "react"
+import { useColor } from "../../store/useColor"
 import { useEditingTask } from "../../store/useEditingTask"
+import { ClockIcon } from "../Shared/icons/ClockIcon"
 import { GearIcon } from "../Shared/icons/GearIcon"
 import { TaskCardIcon } from "../Shared/icons/taskCardIcons/TaskCardIcon"
+import { seconds_to_hhmmss, seconds_to_mmss } from "../Shared/seconds_to_mmss"
 
-//TODO show time, make it a stack?
-// gotta convert currentLenght to mm:ss
-export const ModalTime = () => {
-  let [{length: currentLength}, change ] = useEditingTask()
-  console.log(currentLength) 
+export const ModalTime = ({swap, len}) => {
   return (
-  <div className="medium-background timeBtn">
-    <GearIcon x="0" y="0" />
-  </div>
-)}
+    <div className="medium-background timeBtn innerTask" onClick={() => swap("NUMPAD")}>
+      <div className="deep">
+        <ClockIcon x="20" y="-100" hue="dark" />
+      </div>
+      {/* <TimeDisplay len={len} /> */}
+      <p className="hours">{len}</p>
+    </div>
+  )
+}
 
-const NumPadBtn = (label) => (
+const TimeDisplay = ({ len }: { len: number }) => (
+  <p className="hours">{seconds_to_hhmmss(len)}</p>
+)
+
+const NumPadBtn = ({ label, cb }) => (
   <li
     aria-selected="true"
     tabIndex={0}
     className="medium-background numpadItem"
+    onClick={cb}
   >
     {label}
   </li>
 )
+
+const BackspaceBtn = ({cb}) => ( <div className="medium-background numpadItem" onClick={cb}>
+<TaskCardIcon color="stroke" type="backspace" />
+</div>)
+
+const CheckmarkBtn = ({cb}) => (<div className="medium-background numpadItem" onClick={cb}>
+<TaskCardIcon type="checkmark" color="stroke" />
+</div>)
 
 const labels = [
   1,
@@ -34,18 +51,42 @@ const labels = [
   7,
   8,
   9,
-  <div className="medium-background numpadItem">
-  </div>,
+  "backspace",
   0,
-  <div className="medium-background numpadItem">
-    {/* <TaskCardIcon type="checkmark" color="stroke" /> */}
-    <TaskCardIcon color="stroke" type="backspace" />
-  </div>,
-].map((item) => {
-  if (typeof item === "number") return NumPadBtn(item)
-  else return item
-})
+  "checkmark"
+]
 
-export const ModalTimePicker = () => {
-  return <ul className="numpad fadeIn">{labels}</ul>
+export const ModalTimePicker = ({changeDisplay, len, sendChange}) => {
+  useColor()
+  let handleChange = (num: number) => {
+    let currentLen: string[] = len.replaceAll(":", "").split("")
+    if (num > -1 && num <= 9) {
+      currentLen.shift()
+      currentLen.push(String(num))
+    } else if (num === -1) {
+      currentLen.pop()
+      currentLen.unshift("0")
+    }
+    currentLen.splice(2,0,":")
+    currentLen.splice(5,0,":")
+    changeDisplay(currentLen.join(""))
+  }
+  let handleConfirm = () => {
+    let currentLen: string[] = len.replaceAll(":", "").split("")
+    let hours = Number(currentLen.slice(0,2).join("")) * 3600
+    let minutes = Number(currentLen.slice(2,4).join("")) * 60
+    let seconds = Number(currentLen.slice(4,6).join(""))
+    if ((hours+minutes+seconds) < 60) seconds = 60
+    sendChange({length: (hours+minutes+seconds), remaining_seconds: (hours+minutes+seconds)})
+  }
+  return (
+    <ul className="numpad fadeIn">
+      {labels.map((item) => {
+        if (typeof item === "number")
+          return <NumPadBtn label={item} cb={() => handleChange(item)} />
+        else if (item === "backspace") return <BackspaceBtn cb={() => handleChange(-1)}/>
+        else if (item === "checkmark") return <CheckmarkBtn cb={handleConfirm}/>
+      })}
+    </ul>
+  )
 }
