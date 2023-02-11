@@ -2,12 +2,31 @@ import { TaskStore } from "./taskSlice"
 import { actions } from "./actions"
 import { SettingsStore } from "./vanillastore"
 
+function move<T>(array: T[], index: number, delta: number) {
+  //ref: https://gist.github.com/albertein/4496103
+
+  var newIndex = index + delta
+  if (newIndex < 0 || newIndex == array.length) return //Already at the top or bottom.
+  var indexes = [index, newIndex].sort((a, b) => a - b) //Sort the indixes (fixed)
+  array.splice(indexes[0], 2, array[indexes[1]], array[indexes[0]]) //Replace from lowest index, two elements, reverting the order
+  return array
+}
+
+var moveUp = function <T>(array: T[], index: number) {
+  return move(array, index, -1)
+}
+
+var moveDown = function <T>(array: T[], index: number) {
+  return move(array, index, 1)
+}
+
 export interface TaskChange {
   id: string
   changes: Partial<TaskStore>
 }
 
-const isTaskChange = (obj: any | TaskChange): obj is TaskChange => (obj.hasOwnProperty("id") && obj.hasOwnProperty("changes"))
+const isTaskChange = (obj: any | TaskChange): obj is TaskChange =>
+  obj.hasOwnProperty("id") && obj.hasOwnProperty("changes")
 
 export interface TaskListStore {
   status: "IDLE" | "TIMER_ACTIVE"
@@ -106,7 +125,7 @@ export const tasklist_reducer = (
           }
         }
       }
-      
+
       if (state.status === "TIMER_ACTIVE") {
         settingsDispatch(actions.meta.playTaskDone)
         return { ...start_timer({ ...state, tasks }) }
@@ -120,23 +139,24 @@ export const tasklist_reducer = (
     }
     case actions.taskList.setTaskList: {
       if (state.timer) clearInterval(state.timer)
-      if (!payload || typeof payload === "string" || isTaskChange(payload)) return state
+      if (!payload || typeof payload === "string" || isTaskChange(payload))
+        return state
       state.getState().dispatch("setTask", payload.tasks[0])
       return { ...state, status: "IDLE", ...payload }
     }
     case actions.taskList.editTask: {
       if (!isTaskChange(payload)) return state
-      let index = state.tasks.findIndex(task => task.id === payload.id)
+      let index = state.tasks.findIndex((task) => task.id === payload.id)
       let task = state.tasks.slice()[index]
       let newTask = {
         ...task,
-        ...payload.changes
+        ...payload.changes,
       }
       let newTasks = state.tasks.slice()
       newTasks[index] = newTask
       if (index === 0) state.getState().dispatch("setTask", payload.changes)
       return {
-        tasks: newTasks
+        tasks: newTasks,
       }
     }
     case actions.taskList.endTasklist: {
@@ -150,7 +170,7 @@ export const tasklist_reducer = (
       if (!isTaskChange(payload)) return state
       if (state.timer) clearInterval(state.timer)
       let taskDispatch = state.getState().dispatch
-      let index = state.tasks.findIndex(task => task.id === payload.id)
+      let index = state.tasks.findIndex((task) => task.id === payload.id)
       let tasks = state.tasks.slice()
       tasks.splice(index, 1)
       if (index === 0) taskDispatch(actions.task.setTask, { ...tasks[0] })
@@ -162,12 +182,37 @@ export const tasklist_reducer = (
     }
     case actions.taskList.add: {
       if (!isTaskChange(payload)) return state
-      let break_index = state.tasks.findIndex(task => task.name === "_BREAK")
+      let break_index = state.tasks.findIndex((task) => task.name === "_BREAK")
       let newtasks = state.tasks.slice()
       newtasks.splice(break_index, 0, payload.changes as TaskStore)
       return {
-        tasks: newtasks
+        tasks: newtasks,
       }
+    }
+    case actions.taskList.moveDown: {
+      if (!isTaskChange(payload)) return state
+      let taskDispatch = state.getState().dispatch
+      let index = state.tasks.findIndex((task) => task.id === payload.id)
+      let newTasks = moveDown(state.tasks.slice(), index)
+      if (index === 0) taskDispatch(actions.task.setTask, { ...newTasks[0] })
+      return {
+        tasks: newTasks,
+      }
+    }
+    case actions.taskList.moveUp: {
+      if (!isTaskChange(payload)) return state
+      let taskDispatch = state.getState().dispatch
+      let index = state.tasks.findIndex((task) => task.id === payload.id)
+      if (index === 0) {
+        state.dispatch(actions.taskList.sendBottom, "preserve")
+        return {}
+      } else {
+        let newTasks = moveUp(state.tasks.slice(), index)
+        if (index === 1) taskDispatch(actions.task.setTask, { ...newTasks[0] })
+        return {
+          tasks: newTasks,
+        }
+      } 
     }
     default:
       return state

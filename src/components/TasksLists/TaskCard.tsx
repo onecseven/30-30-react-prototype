@@ -1,6 +1,6 @@
 import moment from "moment"
 import React from "react"
-import { useSettingsStore } from "../../store/store"
+import { useSettingsStore, useTimerStore } from "../../store/store"
 import { TaskStore } from "../../store/taskSlice"
 import { Color } from "../../types"
 import { LineIcon } from "../Shared/icons/LineIcon"
@@ -13,6 +13,7 @@ interface taskCardProps {
 export const TaskCard = ({ task }: taskCardProps) => {
   let { name, remaining_seconds, computed, color, icon, id} = task
   let [layout, dispatch] = useSettingsStore((state) => [state.layout, state.dispatch])
+  let taskListDispatch = useTimerStore((state) =>  state.dispatch)
 
   if (name === "_BREAK") return <LineIcon x="0" y="0" />
   if (!computed)
@@ -24,6 +25,10 @@ export const TaskCard = ({ task }: taskCardProps) => {
   let [cStart, cEnd] = computed
   let cLen = formatSeconds(remaining_seconds)
   let edit = () => dispatch("setEditTask", id)
+  let payload = {id, changes: null}
+  let moveUp = () => taskListDispatch("moveUp", payload)
+  let moveDown = () => taskListDispatch("moveDown",payload)
+  const move: [() => void, () => void] = [moveUp, moveDown]
   return (
     <SVGCard
       name={name}
@@ -34,6 +39,7 @@ export const TaskCard = ({ task }: taskCardProps) => {
       layout={layout}
       icon={icon}
       edit={edit}
+      move={move}
     />
   ) 
 }

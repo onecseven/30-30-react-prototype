@@ -14,6 +14,7 @@ type SVGCardProps = {
   fill?: string
   icon: taskIcon | null
   edit: () => void
+  move: [() => void, () => void]
 }
 
 export const SVGCard = ({
@@ -25,8 +26,10 @@ export const SVGCard = ({
   layout,
   icon,
   edit,
+  move
 }: SVGCardProps) => {
   let computedColor = layout === "MODERN" ? "fill" : color
+  let [moveUp, moveDown] = move
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -51,8 +54,8 @@ export const SVGCard = ({
         <CardName name={name} color={computedColor} onClick={edit}/>
         <CardLength length={length} color={computedColor} onClick={edit} />
         <CompStart cStart={cStart + " 🡒 " + cEnd} color={computedColor} onClick={edit} />
-        <UpArrow color={computedColor} />
-        <DownArrow color={computedColor} />
+        <UpArrow color={computedColor}  moveUp={moveUp}/>
+        <DownArrow color={computedColor} moveDown={moveDown}/>
         {/* <CardArrow color={computedColor} />
         <CompEnd cEnd={cEnd} color={computedColor} /> */}
     </svg>
@@ -130,9 +133,9 @@ const CardArrow = ({ color }) => (
   </>
 )
 
-const UpArrow = ({ color }) => (
+const UpArrow = ({ color, moveUp }) => (
   <>
-    <g className="innerButton">
+    <g className="innerButton" onClick={moveUp}>
       <rect
         strokeWidth="1"
         stroke="transparent"
@@ -159,9 +162,9 @@ const UpArrow = ({ color }) => (
     </g>
   </>
 )
-const DownArrow = ({ color }) => (
+const DownArrow = ({ color, moveDown }) => (
   <>
-    <g className="innerButton">
+    <g className="innerButton" onClick={moveDown}>
       <rect
         strokeWidth="1"
         stroke="transparent"
