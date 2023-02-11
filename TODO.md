@@ -21,11 +21,15 @@ TODO Editing Tasks in a Modal
       [x] IMPLEMENT Functionality
     [ ] Compare App.css with styles.css
     [x] New Task Button
-    [ ] Up/Down Buttons on hover next to svg task card?
+    [x] Up/Down Buttons on hover next to svg task card?
+    [ ] New Tasklist Button
+      [ ] IMPLEMENT Functionality
+    [ ] Save locally87
 
-
-* **I suppose that the option of  adding a new task, changing their order and saving tasklists** is not that much more. We already have the new task creation screen. But where to place the new task button? I suppose after the tasklist we could have the silhouette of a task, indented, that has a [+] button in there.
-
+* **I suppose that the option of  adding a new task
+  changing their order and 
+ saving tasklists** 
+ 
 [ ] TODO Gesture recognition
 [ ] {future} Swap to Svelte?
 [ ] React-Native

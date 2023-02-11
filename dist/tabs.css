@@ -80,10 +80,13 @@ p.link {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   z-index: 0;
+  font-size:30px;
+  font-weight: bolder;
 }
 
 .inactive {
-  filter: brightness(90%)
+  filter: brightness(80%);
+  font-weight:lighter;
 }
 
 .inactive:hover {

@@ -61,6 +61,16 @@ svg
   }
 }
 
+@keyframes move {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(30%);
+  }
+}
+
+
 
 .colorPicker {
   z-index: 1;
@@ -101,14 +111,17 @@ svg
   display: grid;
   border-top: 3px solid rgba(0, 0, 0, 0.2);
   border-right: 3px solid rgba(0, 0, 0, 0.2);
-  padding: 20%;
+  padding-top: 13%;
   background-color: rgba(0, 0, 0, 0);
   -webkit-transition: 0.2s -webkit-filter linear;
   -moz-transition: 0.2s -moz-filter linear;
   -moz-transition: 0.2s filter linear;
   transition: 0.2s filter linear;
   user-select: none;
+  font-size: 36px;
+  font-weight: bolder;
 }
+
 
 .iconItem {
   text-align: center;
@@ -128,12 +141,21 @@ svg
 }
 
 .iconItem:hover {
-  filter: brightness(80%) drop-shadow(1px 1px black);
+  filter: brightness(80%) drop-shadow(1px 1px rgba(0,0,0,0.5));
+}
+
+.iconItem:active {
+  filter: brightness(110%) drop-shadow(1px 1px rgba(0,0,0,0.5));
 }
 
 .selectedIcon {
-  filter: brightness(70%) drop-shadow(1px 1px black);
+  filter: brightness(110%) drop-shadow(2px 2px rgba(0,0,0,0.5));
 }
+
+.selectedIcon:hover {
+  filter: brightness(110%) drop-shadow(2px 2px rgba(0,0,0,0.5));
+}
+
 
 .numpadItem:hover {
   filter: brightness(85%);
@@ -157,7 +179,7 @@ svg
 
 .numpadItem:nth-child(10) > svg,
 .numpadItem:nth-child(12) > svg {
-  transform: scale(2) translateY(25%);
+  transform: scale(2) translateY(55%);
 }
 
 .colorSquare {
@@ -170,7 +192,8 @@ svg
 }
 
 .selected {
-  border: 5px solid blue;
+  /* border: 5px solid blue; */
+  box-shadow: -2px 2px rgba(0,0,0,0.8);
 }
 
 .nameEditField {
@@ -419,16 +442,12 @@ body {
 .svgTaskCard {
   margin-right: 0.5%;
 }
+
+
 .addTaskCard {
   margin-right: 0.5%;
 }
 
-.innerTask {
-  -webkit-transition: 0.2s -webkit-filter linear;
-  -moz-transition: 0.2s -moz-filter linear;
-  -moz-transition: 0.2s filter linear;
-  transition: 0.2s filter linear;
-}
 
 .innerAdd {
   -webkit-transition: 0.2s -webkit-filter linear;
@@ -438,8 +457,14 @@ body {
   opacity: 70%;
 }
 .innerAdd:hover {
-    filter: brightness(80%);
-
+  filter: brightness(80%);
+  
+}
+.innerTask {
+  -webkit-transition: 0.2s -webkit-filter linear;
+  -moz-transition: 0.2s -moz-filter linear;
+  -moz-transition: 0.2s filter linear;
+  transition: 0.2s filter linear;
 }
 
 .innerTask:hover {
@@ -492,9 +517,40 @@ body {
 }
 .background-darken:hover {
   filter: brightness(120%);
-  box-shadow: -2px 2px 2px black;
+  box-shadow: -2px 2px 2px rgba(0,0,0,0.8);
 }
 .background-darken:focus {
   filter: brightness(120%);
   box-shadow: -2px 2px 2px black;
+}
+
+.noselect {
+  user-select: none;
+}
+
+.upArrow {
+  /* transform: rotate(90deg); */
+}
+
+.svgTaskCard:hover > .innerButton {
+  opacity: 100%;
+  filter: brightness(80%);
+  /* transform: translateX(20%); */
+}
+
+.innerButton {
+  -webkit-transition: 0.2s -webkit-filter ease-in;
+  -moz-transition: 0.2s -moz-filter ease-in;
+  -moz-transition: 0.2s filter ease-in;
+  transition: 0.2s filter ease-in;
+  transition: 0.2s all ease-in;
+  fill:rgba(265,265,265,0.1);
+  opacity: 0.01%;
+}
+
+
+.svgTaskCard:hover > .innerButton:hover {
+  filter: brightness(100%) }
+.svgTaskCard:hover > .innerButton:active {
+  filter: brightness(120%) ;
 }
