@@ -9,6 +9,7 @@ export interface IconProps {
   height?: string
   viewbox?: string
   hue?: "medium" | "light" | "dark"
+  className?: string
 }
 
 const formatStringToCamelCase = (str) => {
@@ -36,11 +37,11 @@ const getStyleObjectFromString = (str) => {
   return style
 }
 
-export const Icon = ({ x, y, children, width = "80", height = "90", viewbox="0 0 512 512"}: IconProps) => {
+export const Icon = ({ x, y, children, width = "80", height = "90", viewbox="0 0 512 512", className=""}: IconProps) => {
   return (
     <svg
       fill={colorStrings.gray.light}
-      className="icon light-fill fillT"
+      className={`icon light-fill fillT ${className}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox={viewbox}
       x={x}

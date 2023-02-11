@@ -1,4 +1,4 @@
-import { BackspaceIcon } from "../BackspaceIcon"
+import { BackspaceIcon } from "./BackspaceIcon"
 import { AddIcon } from "./AddIcon"
 import { BasketIcon } from "./BasketIcon"
 import { BedIcon } from "./BedIcon"

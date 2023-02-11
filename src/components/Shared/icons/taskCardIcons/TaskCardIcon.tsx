@@ -8,9 +8,10 @@ interface TaskCardIconProps {
   className?: string
   x?: string
   y?: string
+  onClick?: () => void
 }
 
-export const TaskCardIcon = ({color, type, className = "", x="8", y="5"}: TaskCardIconProps) => {
+export const TaskCardIcon = ({color, type, className = "", x="8", y="5", onClick}: TaskCardIconProps) => {
   return (
     <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -25,6 +26,7 @@ export const TaskCardIcon = ({color, type, className = "", x="8", y="5"}: TaskCa
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
+    onClick={onClick}
   >
     {IconList[type]()}
     </svg>
