@@ -6,9 +6,12 @@ import { GearIcon } from "../Shared/icons/GearIcon"
 import { TaskCardIcon } from "../Shared/icons/taskCardIcons/TaskCardIcon"
 import { seconds_to_hhmmss, seconds_to_mmss } from "../Shared/seconds_to_mmss"
 
-export const ModalTime = ({swap, len}) => {
+export const ModalTime = ({ swap, len }) => {
   return (
-    <div className="medium-background timeBtn innerTask" onClick={() => swap("NUMPAD")}>
+    <div
+      className="medium-background timeBtn innerTask"
+      onClick={() => swap("NUMPAD")}
+    >
       <div className="deep">
         <ClockIcon x="20" y="-100" hue="dark" />
       </div>
@@ -33,30 +36,21 @@ const NumPadBtn = ({ label, cb }) => (
   </li>
 )
 
-const BackspaceBtn = ({cb}) => ( <div className="medium-background numpadItem" onClick={cb}>
-<TaskCardIcon color="stroke" type="backspace" />
-</div>)
+const BackspaceBtn = ({ cb }) => (
+  <div className="medium-background numpadItem" onClick={cb}>
+    <TaskCardIcon color="stroke" type="backspace" />
+  </div>
+)
 
-const CheckmarkBtn = ({cb}) => (<div className="medium-background numpadItem" onClick={cb}>
-<TaskCardIcon type="checkmark" color="stroke" />
-</div>)
+const CheckmarkBtn = ({ cb }) => (
+  <div className="medium-background numpadItem" onClick={cb}>
+    {/* <TaskCardIcon type="checkmark" color="stroke" /> */}
+  </div>
+)
 
-const labels = [
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  "backspace",
-  0,
-  "checkmark"
-]
+const labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, "checkmark", 0, "backspace"]
 
-export const ModalTimePicker = ({changeDisplay, len, sendChange}) => {
+export const ModalTimePicker = ({ changeDisplay, len, sendChange }) => {
   useColor()
   let handleChange = (num: number) => {
     let currentLen: string[] = len.replaceAll(":", "").split("")
@@ -67,25 +61,30 @@ export const ModalTimePicker = ({changeDisplay, len, sendChange}) => {
       currentLen.pop()
       currentLen.unshift("0")
     }
-    currentLen.splice(2,0,":")
-    currentLen.splice(5,0,":")
+    currentLen.splice(2, 0, ":")
+    currentLen.splice(5, 0, ":")
     changeDisplay(currentLen.join(""))
+    handleConfirm(currentLen.join(""))
   }
-  let handleConfirm = () => {
-    let currentLen: string[] = len.replaceAll(":", "").split("")
-    let hours = Number(currentLen.slice(0,2).join("")) * 3600
-    let minutes = Number(currentLen.slice(2,4).join("")) * 60
-    let seconds = Number(currentLen.slice(4,6).join(""))
-    if ((hours+minutes+seconds) < 60) seconds = 60
-    sendChange({length: (hours+minutes+seconds), remaining_seconds: (hours+minutes+seconds)})
+  let handleConfirm = (changedLen) => {
+    let currentLen: string[] = changedLen.replaceAll(":", "").split("")
+    let hours = Number(currentLen.slice(0, 2).join("")) * 3600
+    let minutes = Number(currentLen.slice(2, 4).join("")) * 60
+    let seconds = Number(currentLen.slice(4, 6).join(""))
+    let total = hours + minutes + seconds
+    if (total < 60) seconds = 60
+    else if (total >= 86400) total = 86399 //1 day
+    sendChange({ length: total, remaining_seconds: total })
   }
   return (
     <ul className="numpad fadeIn">
       {labels.map((item) => {
         if (typeof item === "number")
           return <NumPadBtn label={item} cb={() => handleChange(item)} />
-        else if (item === "backspace") return <BackspaceBtn cb={() => handleChange(-1)}/>
-        else if (item === "checkmark") return <CheckmarkBtn cb={handleConfirm}/>
+        else if (item === "backspace")
+          return <BackspaceBtn cb={() => handleChange(-1)} />
+        else if (item === "checkmark")
+          return <CheckmarkBtn cb={() => console.log("This button does nothing.")} />
       })}
     </ul>
   )
