@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { ModalView } from "./components/Modal/ModalView"
 import { Picker } from "./components/Picker/Picker"
 import { Settings } from "./components/Settings/Settings"
@@ -21,6 +21,10 @@ export const App = () => {
   const setView = (view: Views) => () => {
     dispatch("setView", view)
   }
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [currentView])
 
   return (
     <div className="App" id="App">
