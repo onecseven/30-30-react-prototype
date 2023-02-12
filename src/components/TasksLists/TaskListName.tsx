@@ -8,3 +8,21 @@ export const TaskListName = () => {
     </div>
   )
 }
+
+//IMPLEMENT adding 
+// on click swap to input to change tasklist name
+
+// export const EditName = () => {
+//   let [current, change] = useEditingTask()
+//   let handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     change({ name: e.target.value.slice(0, 12) })
+//   }
+//   return (
+//     <input
+//       type="text"
+//       defaultValue={current.name}
+//       onChange={handleChange}
+//       className="medium-background nameEditField fadeIn"
+//     ></input>
+//   )
+// }

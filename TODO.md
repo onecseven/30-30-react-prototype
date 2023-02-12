@@ -22,9 +22,18 @@ TODO Editing Tasks in a Modal
     [ ] Compare App.css with styles.css
     [x] New Task Button
     [x] Up/Down Buttons on hover next to svg task card?
-    [ ] New Tasklist Button
-      [ ] IMPLEMENT Functionality
-    [ ] Save locally87
+
+    [x] New Tasklist Button
+      [x] IMPLEMENT Functionality
+    TaskLists
+        [x] We need an "addTasklist" button in the PickerView
+        [x] The button would add a "New Tasklist" with "New Task"
+    Saving Tasklists
+        [ ] A button next to the tasklist button that is a save button if it is unsaved, and a checkmark if its saved
+        [ ] The save button saves the taskList to localStorage.
+        [ ] I suppose we also need a delete taskList button.
+    [ ] Check localStorage for saved tasklists before loading react.
+    [ ] Add Editing to tName
 
 * **I suppose that the option of  adding a new task
   changing their order and 
