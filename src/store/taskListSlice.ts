@@ -29,6 +29,7 @@ const isTaskChange = (obj: any | TaskChange): obj is TaskChange =>
   obj.hasOwnProperty("id") && obj.hasOwnProperty("changes")
 
 export interface TaskListStore {
+  id: string
   status: "IDLE" | "TIMER_ACTIVE"
   name: string
   tasks: TaskStore[]

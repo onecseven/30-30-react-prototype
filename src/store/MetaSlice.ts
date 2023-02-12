@@ -1,5 +1,6 @@
 import { actions } from "./actions"
 import { playClearSound, playTaskDoneSound } from "./useAudio"
+import { TimerStore, PickerStor } from "./vanillastore"
 
 const layouts = ["CLASSIC", "MODERN"] as const
 
@@ -58,6 +59,14 @@ export const Meta_reducer = (
     }
     case actions.meta.setView: {
       if (!isView(payload)) return state
+      if (payload === "PICKER") {
+        PickerStor.getState().dispatch("editTaskList", {
+          id: TimerStore.getState().id,
+          changes: {
+            ...TimerStore.getState()
+          }
+        })
+      }
       else if (payload === state.currentView) return {currentView: "TIMER"}
       return {
         currentView: payload,
