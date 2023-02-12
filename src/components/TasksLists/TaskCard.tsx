@@ -11,11 +11,14 @@ interface taskCardProps {
 }
 
 export const TaskCard = ({ task }: taskCardProps) => {
-  let { name, remaining_seconds, computed, color, icon, id} = task
-  let [layout, dispatch] = useSettingsStore((state) => [state.layout, state.dispatch])
-  let taskListDispatch = useTimerStore((state) =>  state.dispatch)
-
+  let { name, remaining_seconds, computed, color, icon, id } = task
+  let [layout, dispatch] = useSettingsStore((state) => [
+    state.layout,
+    state.dispatch,
+  ])
+  let [taskListDispatch, modernColor] = useTimerStore((state) => [state.dispatch, state.tasks[0].color])
   if (name === "_BREAK") return <LineIcon x="0" y="0" />
+  if (layout === "MODERN") color = modernColor
   if (!computed)
     computed = [
       moment().startOf("day"),
@@ -25,9 +28,9 @@ export const TaskCard = ({ task }: taskCardProps) => {
   let [cStart, cEnd] = computed
   let cLen = formatSeconds(remaining_seconds)
   let edit = () => dispatch("setEditTask", id)
-  let payload = {id, changes: null}
+  let payload = { id, changes: null }
   let moveUp = () => taskListDispatch("moveUp", payload)
-  let moveDown = () => taskListDispatch("moveDown",payload)
+  let moveDown = () => taskListDispatch("moveDown", payload)
   const move: [() => void, () => void] = [moveUp, moveDown]
   return (
     <SVGCard
@@ -41,5 +44,5 @@ export const TaskCard = ({ task }: taskCardProps) => {
       edit={edit}
       move={move}
     />
-  ) 
+  )
 }

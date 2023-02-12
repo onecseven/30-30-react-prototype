@@ -41,6 +41,7 @@ export const task_reducer = (
       return {
         ...state,
         ...payload,
+        computed: null
       }
     }
     case actions.task.pause: {

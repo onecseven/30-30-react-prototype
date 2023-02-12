@@ -54,8 +54,8 @@ export const SVGCard = ({
         <CardName name={name} color={computedColor} onClick={edit}/>
         <CardLength length={length} color={computedColor} onClick={edit} />
         <CompStart cStart={cStart + " 🡒 " + cEnd} color={computedColor} onClick={edit} />
-        <UpArrow color={computedColor}  moveUp={moveUp}/>
-        <DownArrow color={computedColor} moveDown={moveDown}/>
+        <UpArrow color={color}  moveUp={moveUp}/>
+        <DownArrow color={color} moveDown={moveDown}/>
         {/* <CardArrow color={computedColor} />
         <CompEnd cEnd={cEnd} color={computedColor} /> */}
     </svg>
