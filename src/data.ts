@@ -113,3 +113,6 @@ export default new TaskList("Classic Pomo", [
 ])
 
 export const createDefaultTask = () => new Task("New Task", 5)
+export const createDefaultList = () => new TaskList("New List", [
+  new Task("New Task", 5)
+])

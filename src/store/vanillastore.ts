@@ -1,7 +1,7 @@
 import create from "zustand/vanilla"
 import { TaskStore, task_reducer } from "./taskSlice"
 import { TaskListStore, tasklist_reducer } from "./taskListSlice"
-import { PickerStore, picker_reducer } from "./PickerSlice"
+import { PickerStore, picker_reducer, TaskListChange } from "./PickerSlice"
 import { TaskList } from "../data"
 import { Layout, MetaStore, Meta_reducer, Views } from "./MetaSlice"
 
@@ -20,6 +20,7 @@ export const TaskStor = create<TaskStore>()((set, get) => ({
 }))
 
 export const TimerStore = create<TaskListStore>()((set) => ({
+  id: "",
   status: "IDLE",
   name: "",
   tasks: [],
@@ -33,7 +34,7 @@ export const TimerStore = create<TaskListStore>()((set) => ({
 
 export const PickerStor = create<PickerStore>()((set) => ({
   taskLists: [],
-  dispatch: (type: "string", data: string | TaskList[]) =>
+  dispatch: (type: "string", data: TaskList["id"] | TaskList[] | null | TaskListChange) =>
     set((state) => picker_reducer(state, type, data)),
 }))
 

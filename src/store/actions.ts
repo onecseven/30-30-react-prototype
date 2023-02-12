@@ -23,6 +23,8 @@ export const actions = {
   picker: {
     select: "select",
     set: "set",
+    add: "addTaskList",
+    edit: "editTaskList"
   },
   meta: {
     playTaskDone: "playTaskDone",

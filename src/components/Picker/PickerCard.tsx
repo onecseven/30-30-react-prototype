@@ -1,4 +1,5 @@
 import React from "react"
+import { useColor } from "../../store/useColor"
 import { ListIcon } from "../Shared/icons/ListIcon"
 
 interface PickerCardProps {
@@ -7,6 +8,7 @@ interface PickerCardProps {
 }
 
 export const PickerCard = ({ name, onClick }: PickerCardProps) => {
+  useColor()
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

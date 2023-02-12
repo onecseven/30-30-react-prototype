@@ -402,6 +402,7 @@ body {
   font-size: 3rem;
   transition: color 0.325s linear;
   color: transparent;
+  user-select: none;
 }
 
 .bold {
@@ -441,6 +442,7 @@ body {
 
 .svgTaskCard {
   margin-right: 0.5%;
+  user-select: none;
 }
 
 
@@ -458,7 +460,6 @@ body {
 }
 .innerAdd:hover {
   filter: brightness(80%);
-  
 }
 .innerTask {
   -webkit-transition: 0.2s -webkit-filter linear;
@@ -470,6 +471,22 @@ body {
 .innerTask:hover {
   filter: brightness(80%) drop-shadow(0.5px 1px rgba(0, 0, 0, 0.2));
 }
+
+.interactable {
+  -webkit-transition: 0.2s -webkit-filter linear;
+  -moz-transition: 0.2s -moz-filter linear;
+  -moz-transition: 0.2s filter linear;
+  transition: 0.2s filter linear;
+}
+
+.interactable:hover {
+  filter: brightness(90%);
+}
+.interactable:active {
+  filter: brightness(110%) ;
+}
+
+
 .innerTask:active {
   filter: brightness(110%) ;
 }
