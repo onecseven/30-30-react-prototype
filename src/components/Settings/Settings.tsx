@@ -7,11 +7,10 @@ interface PickerProps {
 }
 
 export const Settings = ({ swap }: PickerProps) => {
-  let { light } = useColor()
+  useColor()
   return (
     <>
       <div className="fadeIn settingsView medium-background">
-        <h1 style={{ color: light }}>Settings</h1>
         <div className="innerSettings">
           <VolumeBtn />
           <LayoutBtn />

@@ -9,7 +9,7 @@ interface PickerCardProps {
   del: () => void
 }
 
-const DeleteButton = ({del}: Partial<PickerCardProps>) => (
+const DeleteButton = ({ del }: Partial<PickerCardProps>) => (
   <>
     <g className="innerButton" onClick={del}>
       <rect
@@ -41,17 +41,16 @@ export const PickerCard = ({ name, select, del }: PickerCardProps) => {
       className="svgTaskCard innerTask"
       transform="scale(0.77)"
     >
-      <g       onClick={select}
->
+      <g onClick={select}>
         <path
           className="dark-fill fillT"
           strokeWidth="0.265"
           d="M3.532 9.05v19.426c.758 2.18 1.973 4.14 5.496 4.985l121.881-.226c2.946-.65 4.572-2.51 5.205-5.278l.073-19.16c-.494-2.822-2.342-4.415-4.953-5.313L9.051 3.412c-3.263.646-5.148 2.486-5.519 5.638z"
         ></path>
+        <PickerLabel name={name} />
+        <ListIcon x="8" y="10" />
       </g>
-      <PickerLabel name={name} />
-      <ListIcon x="8" y="10" />
-      <DeleteButton del={del}/>
+      <DeleteButton del={del} />
     </svg>
   )
 }
