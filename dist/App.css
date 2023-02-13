@@ -199,10 +199,26 @@ svg
 
 .nameEditField {
   background-color: transparent;
+  font-family: "Oswald";
+
   border: none;
   appearance: none;
   height: none;
   width: 362px;
+  padding-right: 1%;
+  padding-left: 1%;
+  font-size: 3rem;
+  margin-right: 1%;
+  transition: background-color 0.325s linear;
+}
+.taskListNameEditField {
+  background-color: transparent;
+  border: none;
+  font-family: "Oswald";
+
+  appearance: none;
+  height: none;
+  width: 95%;
   padding-right: 1%;
   padding-left: 1%;
   font-size: 3rem;
@@ -367,6 +383,7 @@ body {
   max-width: 465px;
   margin-left: 24px;
   padding-bottom: 30px;
+  padding-top: 30px;
   margin-top: 25px;
 }
 

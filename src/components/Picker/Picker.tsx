@@ -9,7 +9,7 @@ interface PickerProps {
 }
 
 export const Picker = ({ swap }: PickerProps) => {
-  let { medium, light } = useColor()
+  useColor()
   let { taskLists, dispatch } = useTaskListPickerStore((state) => state)
   let select = (id: string) => () => (dispatch("select", id), swap())
   let del = (id: string) => () => dispatch("delete", {id, changes: null})
