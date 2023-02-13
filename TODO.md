@@ -31,11 +31,7 @@ TODO Editing Tasks in a Modal
     Saving Tasklists
         [x] I suppose we also need a delete taskList button.
     [x] Check localStorage for saved tasklists before loading react.
-    [ ] Add Editing to tName
-
-* **I suppose that the option of  adding a new task
-  changing their order and 
- saving tasklists** 
+    [x] Add Editing to tName
  
 [ ] TODO Gesture recognition
 [ ] {future} Swap to Svelte?
