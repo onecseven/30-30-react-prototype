@@ -213,7 +213,13 @@ export const tasklist_reducer = (
         return {
           tasks: newTasks,
         }
-      } 
+      }
+    }
+    case actions.taskList.changeName: {
+      if (typeof payload !== "string") return state
+      return {
+        name: payload.slice(0,12),
+      }
     }
     default:
       return state

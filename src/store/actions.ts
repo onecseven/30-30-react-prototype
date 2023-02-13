@@ -10,7 +10,8 @@ export const actions = {
     editTask: "editTask",
     add: "addTask",
     moveUp: "moveUp",
-    moveDown: "moveDown"
+    moveDown: "moveDown",
+    changeName: "changeName"
   },
   task: {
     tick: "tick",
