@@ -67,7 +67,7 @@ export const Meta_reducer = (
           }
         })
       }
-      else if (payload === state.currentView) return {currentView: "TIMER"}
+      if (payload === state.currentView) return {currentView: "TIMER"}
       return {
         currentView: payload,
       }

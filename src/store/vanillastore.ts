@@ -63,7 +63,7 @@ export const TimerStore = create<TaskListStore>()(persist((set) => ({
 //     set((state) => tasklist_reducer(state, type, data)),
 // }))
 
-TimerStore.persist.onFinishHydration((state) => (TaskStor.getState().dispatch("setTask", state.tasks[0]), console.log(state.tasks[0])))
+TimerStore.persist.onFinishHydration((state) => TaskStor.getState().dispatch("setTask", state.tasks[0]))
 
 // console.log(JSON.stringify(TimerStore.getState(), null, 2))
 // console.log(JSON.stringify(TaskStor.getState(), null, 2))

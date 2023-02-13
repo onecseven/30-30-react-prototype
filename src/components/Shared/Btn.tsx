@@ -26,7 +26,6 @@ export const SvgBtn = ({
   cb,
   children = null,
 }: SVGBtnProps) => {
-  useColor()
   return (
     <>
       {children}
@@ -34,7 +33,7 @@ export const SvgBtn = ({
       <circle
         fill="transparent"
         stroke="transparent"
-        className="light-stroke circle "
+        className={`light-stroke circle ${className}`}
         r="62.5"
         cx={x}
         cy={y}
