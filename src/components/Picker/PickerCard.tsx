@@ -1,13 +1,35 @@
 import React from "react"
 import { useColor } from "../../store/useColor"
 import { ListIcon } from "../Shared/icons/ListIcon"
+import { TaskCardIcon } from "../Shared/icons/taskCardIcons/TaskCardIcon"
 
 interface PickerCardProps {
   name: string
-  onClick: () => void
+  select: () => void
+  del: () => void
 }
 
-export const PickerCard = ({ name, onClick }: PickerCardProps) => {
+const DeleteButton = ({del}: Partial<PickerCardProps>) => (
+  <>
+    <g className="innerButton" onClick={del}>
+      <rect
+        strokeWidth="1"
+        stroke="transparent"
+        className={`light-stroke  dark-fill circle `}
+        stroke-width="0.5"
+        // stroke-opacity:1"
+        width="18"
+        height="18"
+        x="110"
+        y="9"
+        rx="2"
+      ></rect>
+      <TaskCardIcon type="close" color={"stroke"} x="110" y="9" />
+    </g>
+  </>
+)
+
+export const PickerCard = ({ name, select, del }: PickerCardProps) => {
   useColor()
   return (
     <svg
@@ -16,11 +38,11 @@ export const PickerCard = ({ name, onClick }: PickerCardProps) => {
       viewBox="0 0 138 38"
       xmlSpace="preserve"
       width="450"
-      className="svgTaskCard"
-      onClick={onClick}
+      className="svgTaskCard innerTask"
       transform="scale(0.77)"
     >
-      <g>
+      <g       onClick={select}
+>
         <path
           className="dark-fill fillT"
           strokeWidth="0.265"
@@ -29,6 +51,7 @@ export const PickerCard = ({ name, onClick }: PickerCardProps) => {
       </g>
       <PickerLabel name={name} />
       <ListIcon x="8" y="10" />
+      <DeleteButton del={del}/>
     </svg>
   )
 }
@@ -42,10 +65,10 @@ const PickerLabel = ({
       y="24"
       className="light-fill fillT"
       strokeWidth="0.265"
-      fontSize="16.933"
+      // fontSize="16.933"
       xmlSpace="preserve"
     >
-      <tspan x="28" y="24.5" strokeWidth="0.265" fontSize="20">
+      <tspan x="28" y="24.5" strokeWidth="0.265" fontSize="16">
         {name}
       </tspan>
     </text>

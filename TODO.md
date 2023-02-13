@@ -29,10 +29,8 @@ TODO Editing Tasks in a Modal
         [x] We need an "addTasklist" button in the PickerView
         [x] The button would add a "New Tasklist" with "New Task"
     Saving Tasklists
-        [ ] A button next to the tasklist button that is a save button if it is unsaved, and a checkmark if its saved
-        [ ] The save button saves the taskList to localStorage.
-        [ ] I suppose we also need a delete taskList button.
-    [ ] Check localStorage for saved tasklists before loading react.
+        [x] I suppose we also need a delete taskList button.
+    [x] Check localStorage for saved tasklists before loading react.
     [ ] Add Editing to tName
 
 * **I suppose that the option of  adding a new task

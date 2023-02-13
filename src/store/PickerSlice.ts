@@ -59,6 +59,17 @@ export const picker_reducer = (
         taskLists: newTasks,
       }
     }
+    case actions.picker.delete: {
+      if (!isTaskListChange(payload) || state.taskLists.length <= 1) return state
+      let index = state.taskLists.findIndex((task) => task.id === payload.id)
+      let newTasks = state.taskLists.slice()
+      newTasks.splice(index, 1)
+      let selected = TimerStore.getState().id === payload.id
+      if (selected) TimerStore.getState().dispatch(actions.taskList.setTaskList, newTasks[0] as TaskListStore)
+      return {
+        taskLists: newTasks,
+      }
+    }
     default:
       return state
   }

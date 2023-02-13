@@ -24,7 +24,8 @@ export const actions = {
     select: "select",
     set: "set",
     add: "addTaskList",
-    edit: "editTaskList"
+    edit: "editTaskList",
+    delete: "delete"
   },
   meta: {
     playTaskDone: "playTaskDone",
