@@ -8,13 +8,17 @@ export const TimerText = ({ rem = "00:00" }) => {
   let cLen = formatSeconds(remaining_seconds)
 
   return (
-    <text
-      letterSpacing="-10"
-      x="210"
-      y={isHour ? "425" : "455"}
-      className={`${isHour ? "hourTimerText" : "minuteTimerText"} dark-fill fillT fadeIn"`}
-    >
-      {cLen || rem}
-    </text>
+    <>
+      <text
+        letterSpacing="-10"
+        x="210"
+        y={isHour ? "425" : "455"}
+        className={`${isHour ? "hourTimerText" : "minuteTimerText"} dark-fill fillT fadeIn"`}
+      >
+        <tspan x="210" y={isHour ? "425" : "455"} strokeWidth="0.265">
+          {cLen || rem}
+        </tspan>
+      </text>
+    </>
   )
 }

@@ -13,9 +13,8 @@ export const useTick = () => {
   let { length, remaining_seconds,color } = useTaskStor((state) => state)
   let fLen = MAX - solve_for_y(length, remaining_seconds, MAX)
   useEffect(() => {
-    document.getElementById(
-      "innerCircle"
-    ).style = `stroke-dasharray: ${fLen}, ${MAX};stroke:${colorStrings[color].dark}`
+    //@ts-ignore
+    document.getElementById("innerCircle").style = `stroke-dasharray: ${fLen}, ${MAX};stroke:${colorStrings[color].dark}`
     return () => {}
   }, [remaining_seconds])
 

@@ -19,7 +19,7 @@ export const TaskListName = () => {
       break
   }
   return (
-    <div className="tName medium-background bgT" >
+    <div className="tName medium-background bgT fadeIn" >
       {editing ? <EditName def={label} toggle={toggleEditing} change={change} color={color} /> : (<span onClick={toggleEditing} className={`light-${color}-color cT`}> {label}</span>) }
     </div>
   )
