@@ -1,5 +1,6 @@
+//@ts-nocheck
 import { useEffect } from "react"
-import { Color } from "../data"
+import { Color } from "../types"
 import { useTaskStor } from "./store"
 
 type cssColor = {

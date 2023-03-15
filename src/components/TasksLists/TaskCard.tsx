@@ -2,6 +2,7 @@ import moment from "moment"
 import React from "react"
 import { useSettingsStore, useTimerStore } from "../../store/store"
 import { TaskStore } from "../../store/taskSlice"
+import { useColor } from "../../store/useColor"
 import { Color } from "../../types"
 import { LineIcon } from "../Shared/icons/LineIcon"
 import { formatSeconds, seconds_to_mmss } from "../Shared/seconds_to_mmss"
@@ -17,6 +18,7 @@ export const TaskCard = ({ task }: taskCardProps) => {
     state.dispatch,
   ])
   let [taskListDispatch, modernColor] = useTimerStore((state) => [state.dispatch, state.tasks[0].color])
+  useColor()
   if (name === "_BREAK") return <LineIcon x="0" y="0" />
   if (layout === "MODERN") color = modernColor
   if (!computed)
